@@ -32,7 +32,7 @@ const categoryColors: Record<string, string> = {
     <div class="container--narrow">
       <div class="news-list">
         {posts.map(post => (
-          <a href={`/news/${post.slug}`} class="news-item">
+          <a href={`/news/${post.id.replace(/\.md$/, '')}`} class="news-item">
             <div class="news-meta">
               <time class="news-date">{post.data.date.replace(/-/g, '.')}</time>
               <span
