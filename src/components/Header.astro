@@ -4,6 +4,7 @@ const navLinks = [
   { label: 'Services', href: '/#services' },
   { label: 'News', href: '/news' },
   { label: '新歓映画館', href: '/services/shinkan-movie', highlight: true },
+  { label: 'Contact', href: '/contact' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -33,7 +34,7 @@ const currentPath = Astro.url.pathname;
           </li>
         ))}
       </ul>
-      <a href="mailto:info@strategy-and.art" class="btn btn--gold header-cta">Contact</a>
+      <a href="/contact" class="btn btn--gold header-cta">Contact</a>
     </nav>
   </div>
 </header>
