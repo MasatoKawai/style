@@ -1,0 +1,145 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('news');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const categoryColors: Record<string, string> = {
+  '新歓': '#4a28b4',
+  '学祭': '#b47800',
+  '協賛': '#1a7a4a',
+  '就活': '#1a4a7a',
+};
+const color = categoryColors[post.data.category] ?? '#555';
+---
+
+<Layout
+  title={`${post.data.title} | Strategy&`}
+  description={post.data.excerpt}
+>
+  <!-- ヒーロー -->
+  <section class="article-hero">
+    <div class="film-strip"></div>
+    <div class="container article-hero-inner">
+      <div class="article-meta">
+        <time class="article-date">{post.data.date.replace(/-/g, '.')}</time>
+        <span class="article-category" style={`color:${color}; background:${color}18`}>
+          {post.data.category}
+        </span>
+      </div>
+      <h1 class="article-title">{post.data.title}</h1>
+      <p class="article-excerpt">{post.data.excerpt}</p>
+      {post.data.externalUrl && (
+        <a href={post.data.externalUrl} target="_blank" rel="noopener noreferrer" class="btn btn--outline external-btn">
+          外部リンクで詳細を見る ↗
+        </a>
+      )}
+    </div>
+    <div class="film-strip film-strip--bottom"></div>
+  </section>
+
+  <!-- 本文 -->
+  <section class="section section--light">
+    <div class="container--narrow">
+      <div class="article-body">
+        <Content />
+      </div>
+      <div class="article-footer">
+        <a href="/news" class="back-link">← ニュース一覧に戻る</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .article-hero {
+    padding: 140px 0 72px;
+    background: linear-gradient(150deg, #0a0a0a 0%, #110820 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .film-strip--bottom { position: absolute; bottom: 0; left: 0; right: 0; }
+  .article-hero-inner { position: relative; z-index: 1; }
+  .article-meta { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+  .article-date { font-size: 13px; color: rgba(255,255,255,0.4); }
+  .article-category {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 3px 12px;
+    border-radius: 20px;
+  }
+  .article-title {
+    font-size: clamp(24px, 4vw, 40px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+  .article-excerpt {
+    font-size: 16px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.8;
+    max-width: 680px;
+    margin-bottom: 32px;
+  }
+  .external-btn { font-size: 14px; padding: 12px 28px; }
+
+  /* Markdown本文スタイル */
+  .article-body {
+    padding: 48px 0;
+    color: var(--text-dark);
+  }
+  .article-body :global(h2) {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 40px 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(74,40,180,0.15);
+  }
+  .article-body :global(h3) {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 28px 0 12px;
+  }
+  .article-body :global(p) {
+    font-size: 15px;
+    line-height: 2;
+    color: #444;
+    margin-bottom: 18px;
+  }
+  .article-body :global(ul), .article-body :global(ol) {
+    padding-left: 20px;
+    margin-bottom: 18px;
+  }
+  .article-body :global(li) {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #444;
+    margin-bottom: 6px;
+  }
+  .article-body :global(strong) { color: var(--text-dark); font-weight: 700; }
+  .article-body :global(a) { color: var(--purple); text-decoration: underline; text-underline-offset: 3px; }
+
+  .article-footer {
+    padding-top: 40px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+  .back-link {
+    font-size: 14px;
+    color: var(--purple);
+    font-weight: 600;
+  }
+  .back-link:hover { text-decoration: underline; }
+</style>

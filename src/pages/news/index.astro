@@ -1,67 +1,58 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
-// ニュース記事はここにオブジェクトとして追加するか、
-// 将来的に src/content/news/*.md に移行できます
-const posts = [
-  {
-    slug: 'hokkaido-shinsai-platform-2024',
-    date: '2024-04-15',
-    category: '新歓',
-    title: '北海道大学 新歓プラットフォーム「北大Style」リリース',
-    excerpt: '北海道大学の新入生向けデジタル新歓パンフレットを公開。約1,000名に活用されました。',
-  },
-  {
-    slug: 'tohoku-gakusai-platform-2024',
-    date: '2024-10-20',
-    category: '学祭',
-    title: '東北大学祭 デジタルシステム「東北大学祭Style」導入',
-    excerpt: '東北大学祭にデジタルプラットフォームを導入。約1,000人の来場者に利用されました。',
-  },
-];
+const allPosts = await getCollection('news');
+const posts = allPosts.sort((a, b) =>
+  new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
+const categoryColors: Record<string, string> = {
+  '新歓': '#4a28b4',
+  '学祭': '#b47800',
+  '協賛': '#1a7a4a',
+  '就活': '#1a4a7a',
+};
 ---
 
 <Layout
   title="News | Strategy&"
   description="Strategy&のニュースリリース・活動報告一覧"
 >
-
-  <!-- ===== ページヒーロー ===== -->
   <section class="page-hero">
     <div class="film-strip"></div>
     <div class="container page-hero-inner">
       <p class="section-label">News</p>
       <h1 class="page-hero-title">ニュース</h1>
-      <p class="page-hero-sub">リリース・活動報告</p>
+      <p class="page-hero-sub">リリース・活動報告 — {posts.length}件</p>
     </div>
   </section>
 
-  <!-- ===== 記事一覧 ===== -->
   <section class="section section--light">
     <div class="container--narrow">
       <div class="news-list">
         {posts.map(post => (
-          <article class="news-item">
+          <a href={`/news/${post.slug}`} class="news-item">
             <div class="news-meta">
-              <time class="news-date">{post.date}</time>
-              <span class="news-category">{post.category}</span>
+              <time class="news-date">{post.data.date.replace(/-/g, '.')}</time>
+              <span
+                class="news-category"
+                style={`color:${categoryColors[post.data.category] ?? '#555'}; background:${categoryColors[post.data.category] ?? '#555'}18`}
+              >
+                {post.data.category}
+              </span>
+              {post.data.externalUrl && (
+                <span class="news-external-badge">外部リンクあり</span>
+              )}
             </div>
-            <h2 class="news-title">{post.title}</h2>
-            <p class="news-excerpt">{post.excerpt}</p>
-          </article>
+            <h2 class="news-title">{post.data.title}</h2>
+            <p class="news-excerpt">{post.data.excerpt}</p>
+            <span class="news-read-more">続きを読む →</span>
+          </a>
         ))}
       </div>
-
-      <!-- 記事の追加方法メモ（開発者向け） -->
-      <!--
-        新しい記事を追加するには:
-        上の posts 配列にオブジェクトを追加するか、
-        Astro Content Collections を使って src/content/news/ に
-        Markdownファイルとして追加してください。
-      -->
     </div>
   </section>
-
 </Layout>
 
 <style>
@@ -72,33 +63,33 @@ const posts = [
     overflow: hidden;
   }
   .page-hero-inner { position: relative; z-index: 1; }
-  .page-hero-title {
-    font-size: clamp(36px, 6vw, 64px);
-    font-weight: 900;
-    color: #fff;
-    margin-bottom: 12px;
-  }
-  .page-hero-sub {
-    font-size: 13px;
-    color: rgba(255,255,255,0.35);
-    letter-spacing: 3px;
-  }
+  .page-hero-title { font-size: clamp(36px, 6vw, 64px); font-weight: 900; color: #fff; margin-bottom: 12px; }
+  .page-hero-sub { font-size: 13px; color: rgba(255,255,255,0.35); letter-spacing: 3px; }
 
-  .news-list { display: flex; flex-direction: column; gap: 0; }
+  .news-list { display: flex; flex-direction: column; }
   .news-item {
+    display: block;
     padding: 36px 0;
     border-bottom: 1px solid rgba(0,0,0,0.08);
+    transition: background 0.15s;
+    cursor: pointer;
   }
   .news-item:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
-  .news-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+  .news-item:hover .news-title { color: var(--purple); }
+  .news-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
   .news-date { font-size: 13px; color: #999; }
   .news-category {
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 2px;
-    color: var(--purple);
-    background: rgba(74,40,180,0.08);
     padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .news-external-badge {
+    font-size: 11px;
+    color: #aaa;
+    border: 1px solid #ddd;
+    padding: 2px 8px;
     border-radius: 20px;
   }
   .news-title {
@@ -107,6 +98,8 @@ const posts = [
     color: var(--text-dark);
     margin-bottom: 10px;
     line-height: 1.4;
+    transition: color 0.15s;
   }
-  .news-excerpt { font-size: 14px; color: var(--text-mid); line-height: 1.8; }
+  .news-excerpt { font-size: 14px; color: var(--text-mid); line-height: 1.8; margin-bottom: 12px; }
+  .news-read-more { font-size: 13px; color: var(--purple); font-weight: 600; }
 </style>
