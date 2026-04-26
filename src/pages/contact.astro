@@ -1,11 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-// ★ Formspreeのフォームエンドポイントを設定してください
-// 1. https://formspree.io/ でアカウント作成（無料）
-// 2. New Form → メールアドレスを入力 → Form ID をコピー
-// 3. 下の FORMSPREE_ID を置き換え
-const FORMSPREE_ID = 'YOUR_FORM_ID'; // 例: "xpzgkwqr"
 ---
 
 <Layout
@@ -75,7 +69,7 @@ const FORMSPREE_ID = 'YOUR_FORM_ID'; // 例: "xpzgkwqr"
       <div class="form-wrap">
         <form
           id="contact-form"
-          action={`https://formspree.io/f/${FORMSPREE_ID}`}
+          action="/api/contact"
           method="POST"
           novalidate
         >
