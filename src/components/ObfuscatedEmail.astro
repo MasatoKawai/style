@@ -1,0 +1,32 @@
+---
+// メールアドレスをスパム収集ボットから守るコンポーネント
+// 表示: info★strategy-and.art
+// クリック: mailto:info@strategy-and.art に変換
+
+interface Props {
+  user: string;       // "@"より前  例: "info"
+  domain: string;     // "@"より後  例: "strategy-and.art"
+  class?: string;
+  label?: string;     // 表示テキストを上書きしたい場合
+}
+
+const { user, domain, class: className = '', label } = Astro.props;
+const display = label ?? `${user}★${domain}`;
+---
+
+<a
+  class:list={['obf-email', className]}
+  data-u={user}
+  data-d={domain}
+  href="#"
+  onclick="(function(el){el.href='mailto:'+el.dataset.u+'@'+el.dataset.d})(this)"
+  aria-label={`メール: ${user} at ${domain}`}
+>
+  {display}
+</a>
+
+<style>
+  .obf-email {
+    cursor: pointer;
+  }
+</style>

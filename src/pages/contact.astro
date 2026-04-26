@@ -1,5 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ObfuscatedEmail from '../components/ObfuscatedEmail.astro';
+
+// ★ FormspreeのForm IDをここに設定してください
+// 1. https://formspree.io/ でGitHubログイン
+// 2. New Form → 受信先メールを入力 → Form ID をコピー（例: xpzgkwqr）
+const FORMSPREE_ID = import.meta.env.FORMSPREE_ID ?? 'YOUR_FORM_ID';
 ---
 
 <Layout
@@ -59,9 +65,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <div class="aside-card aside-card--dark">
           <p class="aside-label aside-label--gold">直接メール</p>
-          <a href="mailto:info@strategy-and.art" class="aside-email">
-            info@strategy-and.art
-          </a>
+          <ObfuscatedEmail user="info" domain="strategy-and.art" class="aside-email" />
         </div>
       </aside>
 
@@ -69,7 +73,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="form-wrap">
         <form
           id="contact-form"
-          action="/api/contact"
+          action={`https://formspree.io/f/${FORMSPREE_ID}`}
           method="POST"
           novalidate
         >

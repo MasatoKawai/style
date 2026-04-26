@@ -1,4 +1,5 @@
 ---
+import ObfuscatedEmail from './ObfuscatedEmail.astro';
 const year = new Date().getFullYear();
 ---
 
@@ -34,7 +35,7 @@ const year = new Date().getFullYear();
         <p class="footer-col-title">Contact</p>
         <ul>
           <li><a href="/contact">お問い合わせフォーム</a></li>
-          <li><a href="mailto:info@strategy-and.art">info@strategy-and.art</a></li>
+          <li><ObfuscatedEmail user="info" domain="strategy-and.art" /></li>
         </ul>
       </div>
     </div>
