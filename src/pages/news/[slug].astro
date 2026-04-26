@@ -25,21 +25,24 @@ const color = categoryColors[post.data.category] ?? '#555';
 <Layout
   title={`${post.data.title} | Strategy&`}
   description={post.data.excerpt}
+  ogImage={post.data.coverImage}
 >
+
   <!-- ヒーロー -->
-  <section class="article-hero">
+  <section class="article-hero" style={post.data.coverImage ? `--cover:url('${post.data.coverImage}')` : ''}>
+    <div class="article-hero-overlay"></div>
     <div class="film-strip"></div>
     <div class="container article-hero-inner">
       <div class="article-meta">
         <time class="article-date">{post.data.date.replace(/-/g, '.')}</time>
-        <span class="article-category" style={`color:${color}; background:${color}18`}>
+        <span class="article-category" style={`color:${color}; background:${color}20`}>
           {post.data.category}
         </span>
       </div>
       <h1 class="article-title">{post.data.title}</h1>
       <p class="article-excerpt">{post.data.excerpt}</p>
       {post.data.externalUrl && (
-        <a href={post.data.externalUrl} target="_blank" rel="noopener noreferrer" class="btn btn--outline external-btn">
+        <a href={post.data.externalUrl} target="_blank" rel="noopener noreferrer" class="btn btn--gold external-btn">
           外部リンクで詳細を見る ↗
         </a>
       )}
@@ -49,28 +52,60 @@ const color = categoryColors[post.data.category] ?? '#555';
 
   <!-- 本文 -->
   <section class="section section--light">
-    <div class="container--narrow">
+    <div class="article-layout container">
+
+      <!-- カバー画像（本文外に大きく） -->
+      {post.data.coverImage && (
+        <div class="article-cover">
+          <img src={post.data.coverImage} alt={post.data.title} loading="lazy" />
+        </div>
+      )}
+
       <div class="article-body">
         <Content />
       </div>
-      <div class="article-footer">
+
+      <footer class="article-footer">
+        {post.data.externalUrl && (
+          <a href={post.data.externalUrl} target="_blank" rel="noopener noreferrer" class="external-cta">
+            <span>📄 note で全文を読む</span>
+            <span class="external-cta-arrow">↗</span>
+          </a>
+        )}
         <a href="/news" class="back-link">← ニュース一覧に戻る</a>
-      </div>
+      </footer>
     </div>
   </section>
+
 </Layout>
 
 <style>
+  /* ===== ヒーロー ===== */
   .article-hero {
     padding: 140px 0 72px;
-    background: linear-gradient(150deg, #0a0a0a 0%, #110820 100%);
+    background:
+      var(--cover, none)
+      linear-gradient(150deg, #0a0a0a 0%, #110820 100%);
+    background-size: cover;
+    background-position: center;
     position: relative;
     overflow: hidden;
   }
+  .article-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(10,10,10,0.75) 0%,
+      rgba(10,10,10,0.88) 60%,
+      rgba(10,10,10,0.97) 100%
+    );
+  }
   .film-strip--bottom { position: absolute; bottom: 0; left: 0; right: 0; }
   .article-hero-inner { position: relative; z-index: 1; }
+
   .article-meta { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
-  .article-date { font-size: 13px; color: rgba(255,255,255,0.4); }
+  .article-date { font-size: 13px; color: rgba(255,255,255,0.45); }
   .article-category {
     font-size: 11px;
     font-weight: 700;
@@ -79,49 +114,68 @@ const color = categoryColors[post.data.category] ?? '#555';
     border-radius: 20px;
   }
   .article-title {
-    font-size: clamp(24px, 4vw, 40px);
+    font-size: clamp(24px, 4vw, 42px);
     font-weight: 900;
     color: #fff;
     line-height: 1.3;
     margin-bottom: 20px;
+    max-width: 800px;
   }
   .article-excerpt {
     font-size: 16px;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.55);
     line-height: 1.8;
-    max-width: 680px;
+    max-width: 640px;
     margin-bottom: 32px;
   }
   .external-btn { font-size: 14px; padding: 12px 28px; }
 
-  /* Markdown本文スタイル */
+  /* ===== レイアウト ===== */
+  .article-layout { max-width: 760px; margin: 0 auto; padding-top: 0; }
+
+  /* ===== カバー画像 ===== */
+  .article-cover {
+    margin: -1px 0 48px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 12px 48px rgba(0,0,0,0.12);
+  }
+  .article-cover img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* ===== 本文 ===== */
   .article-body {
-    padding: 48px 0;
     color: var(--text-dark);
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
   }
   .article-body :global(h2) {
     font-size: 22px;
     font-weight: 700;
     color: var(--text-dark);
-    margin: 40px 0 16px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid rgba(74,40,180,0.15);
+    margin: 48px 0 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgba(74,40,180,0.12);
   }
   .article-body :global(h3) {
     font-size: 17px;
     font-weight: 700;
     color: var(--text-dark);
-    margin: 28px 0 12px;
+    margin: 32px 0 12px;
   }
   .article-body :global(p) {
     font-size: 15px;
     line-height: 2;
     color: #444;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
   }
-  .article-body :global(ul), .article-body :global(ol) {
+  .article-body :global(ul),
+  .article-body :global(ol) {
     padding-left: 20px;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
   }
   .article-body :global(li) {
     font-size: 15px;
@@ -130,16 +184,57 @@ const color = categoryColors[post.data.category] ?? '#555';
     margin-bottom: 6px;
   }
   .article-body :global(strong) { color: var(--text-dark); font-weight: 700; }
-  .article-body :global(a) { color: var(--purple); text-decoration: underline; text-underline-offset: 3px; }
-
-  .article-footer {
-    padding-top: 40px;
-    border-top: 1px solid rgba(0,0,0,0.08);
+  .article-body :global(a) {
+    color: var(--purple);
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
+
+  /* 本文内の画像 */
+  .article-body :global(img) {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 32px 0;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    display: block;
+  }
+  .article-body :global(p:has(img)) {
+    margin: 0;
+  }
+
+  /* 複数画像が並ぶ場合はグリッドに */
+  .article-body :global(p + p:has(img)) {
+    display: grid;
+  }
+
+  /* ===== フッター ===== */
+  .article-footer {
+    padding-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .external-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    background: #f0eeff;
+    border-radius: 8px;
+    border: 1px solid rgba(74,40,180,0.15);
+    color: var(--purple);
+    font-weight: 700;
+    font-size: 15px;
+    transition: background 0.2s;
+  }
+  .external-cta:hover { background: #e4dcff; }
+  .external-cta-arrow { font-size: 18px; }
   .back-link {
     font-size: 14px;
-    color: var(--purple);
-    font-weight: 600;
+    color: #999;
+    font-weight: 500;
+    transition: color 0.15s;
   }
-  .back-link:hover { text-decoration: underline; }
+  .back-link:hover { color: var(--purple); }
 </style>
