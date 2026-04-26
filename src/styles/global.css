@@ -1,0 +1,123 @@
+/* ===== リセット & ベース ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold: #ffb400;
+  --gold-dim: rgba(255,180,0,0.7);
+  --purple: #4a28b4;
+  --bg-dark: #0a0a0a;
+  --bg-dark2: #0f0f0f;
+  --bg-card: #141414;
+  --bg-light: #f6f6f6;
+  --text-white: #ffffff;
+  --text-dim: rgba(255,255,255,0.55);
+  --text-dimmer: rgba(255,255,255,0.3);
+  --text-dark: #1a1a1a;
+  --text-mid: #555;
+  --radius: 4px;
+  --transition: 0.2s ease;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ===== ユーティリティ ===== */
+.container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+.container--narrow { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+.section { padding: 96px 0; }
+.section--light { background: var(--bg-light); color: var(--text-dark); }
+.section--dark { background: var(--bg-dark2); }
+.section--darker { background: var(--bg-dark); }
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  color: var(--gold-dim);
+}
+.section-label--dark { color: var(--purple); opacity: 0.8; }
+
+.section-divider {
+  width: 36px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--gold);
+  margin-bottom: 28px;
+}
+.section-divider--purple { background: var(--purple); }
+
+.section-title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.section-lead {
+  font-size: 16px;
+  line-height: 1.95;
+  max-width: 680px;
+  color: var(--text-dim);
+}
+.section-lead--dark { color: var(--text-mid); }
+
+/* フィルム装飾 */
+.film-strip {
+  height: 8px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px, transparent 12px,
+    rgba(255,180,0,0.35) 12px, rgba(255,180,0,0.35) 20px
+  );
+}
+
+/* ===== ボタン ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 36px;
+  border-radius: var(--radius);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all var(--transition);
+  border: none;
+}
+.btn--gold {
+  background: var(--gold);
+  color: var(--bg-dark);
+}
+.btn--gold:hover { filter: brightness(1.08); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,180,0,0.28); }
+
+.btn--outline {
+  background: transparent;
+  color: var(--text-white);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.btn--outline:hover { border-color: #fff; background: rgba(255,255,255,0.06); transform: translateY(-2px); }
+
+.btn--purple {
+  background: var(--purple);
+  color: #fff;
+}
+.btn--purple:hover { background: #3d1fa0; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(74,40,180,0.28); }
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 640px) {
+  .section { padding: 64px 0; }
+  .section-title { font-size: 28px; }
+}

@@ -1,0 +1,151 @@
+---
+const navLinks = [
+  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/#services' },
+  { label: 'News', href: '/news' },
+  { label: '新歓映画館', href: '/services/shinkan-movie', highlight: true },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="header" id="header">
+  <div class="header-inner container">
+    <a href="/" class="logo">
+      <span class="logo-mark">S</span>
+      <span class="logo-text">Strategy<span class="logo-amp">&</span></span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="nav">
+      <ul class="nav-list">
+        {navLinks.map(link => (
+          <li>
+            <a
+              href={link.href}
+              class:list={['nav-link', { 'nav-link--active': currentPath === link.href, 'nav-link--highlight': link.highlight }]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <a href="mailto:info@strategy-and.art" class="btn btn--gold header-cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0;
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+  .header.scrolled {
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 900;
+  }
+  .logo-mark {
+    width: 34px;
+    height: 34px;
+    background: var(--gold);
+    color: var(--bg-dark);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+  .logo-text {
+    font-size: 17px;
+    color: #fff;
+    letter-spacing: -0.5px;
+  }
+  .logo-amp { color: var(--gold); }
+
+  .nav { display: flex; align-items: center; gap: 32px; }
+  .nav-list { list-style: none; display: flex; gap: 4px; }
+  .nav-link {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    padding: 8px 14px;
+    border-radius: var(--radius);
+    transition: color var(--transition), background var(--transition);
+    font-weight: 500;
+  }
+  .nav-link:hover, .nav-link--active { color: #fff; background: rgba(255,255,255,0.07); }
+  .nav-link--highlight { color: var(--gold) !important; }
+  .nav-link--highlight:hover { background: rgba(255,180,0,0.1); }
+
+  .header-cta { padding: 10px 22px; font-size: 13px; }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  @media (max-width: 768px) {
+    .nav-toggle { display: flex; }
+    .nav {
+      display: none;
+      position: fixed;
+      inset: 68px 0 0 0;
+      background: rgba(10,10,10,0.98);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+    }
+    .nav.open { display: flex; }
+    .nav-list { flex-direction: column; align-items: center; }
+    .nav-link { font-size: 20px; padding: 12px 32px; }
+    .header-cta { font-size: 16px; padding: 14px 40px; }
+  }
+</style>
+
+<script>
+  const header = document.getElementById('header');
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('nav');
+
+  window.addEventListener('scroll', () => {
+    header?.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  toggle?.addEventListener('click', () => {
+    nav?.classList.toggle('open');
+  });
+</script>

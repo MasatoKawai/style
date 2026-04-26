@@ -1,0 +1,326 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="film-strip"></div>
+    <div class="hero-inner container">
+      <p class="hero-eyebrow">Strategy& — since 2024</p>
+      <h1 class="hero-title">
+        後悔しない人生のために、<br>
+        <em>すべての選択肢</em>を可視化する。
+      </h1>
+      <p class="hero-lead">
+        機会格差をなくし、誰もが「知っていれば選べた人生」を選べる世界へ。<br>
+        北海道大学・東北大学を起点に、学生の機会と選択をデータでつなぐ。
+      </p>
+      <div class="hero-ctas">
+        <a href="/about" class="btn btn--gold">私たちについて</a>
+        <a href="#services" class="btn btn--outline">サービスを見る</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>SCROLL</span>
+      <span class="hero-scroll-arrow">↓</span>
+    </div>
+    <div class="film-strip film-strip--bottom"></div>
+  </section>
+
+  <!-- ===== 実績 ===== -->
+  <section class="section section--dark achievements">
+    <div class="container">
+      <p class="section-label">Achievements</p>
+      <div class="section-divider"></div>
+      <div class="achievement-grid">
+        <div class="achievement-item">
+          <strong>1,000+</strong>
+          <span>北海道大学<br>新歓プラットフォーム利用</span>
+        </div>
+        <div class="achievement-item">
+          <strong>1,000+</strong>
+          <span>東北大学祭<br>プラットフォーム利用</span>
+        </div>
+        <div class="achievement-item">
+          <strong>2</strong>
+          <span>活動大学<br>（北大・東北大）</span>
+        </div>
+        <div class="achievement-item">
+          <strong>2024</strong>
+          <span>設立年</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== サービス ===== -->
+  <section id="services" class="section section--darker">
+    <div class="container">
+      <p class="section-label">Services</p>
+      <div class="section-divider"></div>
+      <h2 class="section-title">提供するプロダクト</h2>
+      <p class="section-lead">
+        学生の「知らなかった」をなくすための4つのサービス。
+      </p>
+
+      <div class="services-grid">
+
+        <a href="/services/shinkan-movie" class="service-card service-card--featured">
+          <div class="service-card-badge">NEW</div>
+          <div class="service-card-icon">🎬</div>
+          <h3>新歓映画館</h3>
+          <p>サークル・部活のPVを映画館で上映。北大新入生へ圧倒的なリーチを実現。</p>
+          <span class="service-card-link">詳細を見る →</span>
+        </a>
+
+        <div class="service-card">
+          <div class="service-card-icon">📋</div>
+          <h3>新歓プラットフォーム</h3>
+          <p>新入生が迷わず団体を探せるデジタル新歓パンフレット。北大・東北大で実績。</p>
+          <span class="service-card-status">運用中</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card-icon">🎪</div>
+          <h3>学祭プラットフォーム</h3>
+          <p>学祭の企画・告知・来場者管理をデジタル化。約1,000人の利用実績。</p>
+          <span class="service-card-status">運用中</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card-icon">🔔</div>
+          <h3>機会リマインド</h3>
+          <p>締切・条件・非公開情報まで拾い、個人に最適な機会をタイムリーに届ける。</p>
+          <span class="service-card-status service-card-status--soon">2025年リリース予定</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MVV ===== -->
+  <section class="section section--dark mvv-preview">
+    <div class="container">
+      <p class="section-label">Mission</p>
+      <div class="section-divider"></div>
+      <blockquote class="mvv-quote">
+        機会格差をなくし、誰もが<br>
+        <em>「知っていれば選べた人生」</em><br>
+        を選べる世界をつくる。
+      </blockquote>
+      <a href="/about" class="btn btn--outline">MVV・団体概要を見る</a>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="section cta-section">
+    <div class="container--narrow" style="text-align:center">
+      <p class="section-label" style="text-align:center">Contact</p>
+      <div class="section-divider" style="margin:0 auto 28px"></div>
+      <h2 class="section-title">まずは話を聞いてみませんか？</h2>
+      <p class="section-lead" style="margin:0 auto 40px; text-align:center">
+        団体参加・スポンサー・大学との提携など、<br>どんなご相談もお気軽にどうぞ。
+      </p>
+      <a href="mailto:info@strategy-and.art" class="btn btn--gold" style="font-size:16px; padding:18px 48px">
+        メールで問い合わせる
+      </a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(150deg, #0a0a0a 0%, #110820 55%, #0a1428 100%);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 60% 60%, rgba(255,180,0,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 20% 80%, rgba(74,40,180,0.1) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .film-strip--bottom { position: absolute; bottom: 0; left: 0; right: 0; }
+
+  .hero-inner {
+    padding: 120px 24px 80px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: rgba(255,180,0,0.65);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .hero-title {
+    font-size: clamp(32px, 6vw, 68px);
+    font-weight: 900;
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 28px;
+    letter-spacing: -1px;
+  }
+  .hero-title em {
+    font-style: normal;
+    color: var(--gold);
+  }
+  .hero-lead {
+    font-size: clamp(14px, 2vw, 17px);
+    color: rgba(255,255,255,0.55);
+    line-height: 2;
+    margin-bottom: 48px;
+    max-width: 600px;
+  }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255,255,255,0.25);
+    font-size: 10px;
+    letter-spacing: 3px;
+    animation: bounce 2.2s infinite;
+    z-index: 1;
+  }
+  .hero-scroll-arrow { font-size: 14px; }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(7px); }
+  }
+
+  /* ===== 実績 ===== */
+  .achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+  .achievement-item {
+    background: var(--bg-card);
+    padding: 40px 24px;
+    text-align: center;
+  }
+  .achievement-item strong {
+    display: block;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .achievement-item span {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.7;
+  }
+
+  /* ===== サービス ===== */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 56px;
+  }
+  .service-card {
+    background: var(--bg-card);
+    padding: 44px 36px;
+    position: relative;
+    transition: background var(--transition);
+    display: block;
+    border-top: 2px solid rgba(255,255,255,0.04);
+  }
+  .service-card:hover { background: #1a1a1a; }
+  .service-card--featured {
+    border-top-color: var(--gold);
+    background: #130f00;
+  }
+  .service-card--featured:hover { background: #1c1500; }
+  .service-card-badge {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: var(--gold);
+    color: var(--bg-dark);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    letter-spacing: 1px;
+  }
+  .service-card-icon { font-size: 32px; margin-bottom: 20px; }
+  .service-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .service-card p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  .service-card-link {
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .service-card-status {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .service-card-status--soon {
+    color: rgba(74,40,180,0.8);
+    border-color: rgba(74,40,180,0.3);
+  }
+
+  /* ===== MVV ===== */
+  .mvv-preview { text-align: center; }
+  .mvv-quote {
+    font-size: clamp(22px, 3.5vw, 38px);
+    font-weight: 900;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.85);
+    margin: 0 auto 48px;
+    max-width: 700px;
+  }
+  .mvv-quote em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  /* ===== CTA ===== */
+  .cta-section {
+    background: linear-gradient(160deg, #110820 0%, #0a1428 100%);
+  }
+
+  /* ===== レスポンシブ ===== */
+  @media (max-width: 768px) {
+    .achievement-grid { grid-template-columns: repeat(2, 1fr); }
+    .services-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .achievement-grid { grid-template-columns: 1fr 1fr; }
+    .hero-ctas { flex-direction: column; }
+  }
+</style>

@@ -1,0 +1,304 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const values = [
+  {
+    en: 'Never Miss a Chance',
+    ja: '機会を取りこぼさない',
+    desc: '締切・条件・非公開情報まで拾いにいく。知られていない機会こそ、最大の格差の源泉。',
+    num: '01',
+  },
+  {
+    en: 'Make Efforts Visible',
+    ja: '努力を可視化する',
+    desc: '行動・経験・成長をデータとして蓄積する。頑張りは、見えてはじめて価値になる。',
+    num: '02',
+  },
+  {
+    en: 'Push the Next Step',
+    ja: '次の一歩を強制する',
+    desc: '情報を届けるだけでなく、行動を設計する。リマインド・コイン・行動設計で意思決定を後押し。',
+    num: '03',
+  },
+  {
+    en: 'Partner with You',
+    ja: '伴走する',
+    desc: 'テクノロジーと人が寄り添い、一人ひとりの意思決定をサポートする。',
+    num: '04',
+  },
+  {
+    en: 'Design Incentives',
+    ja: '行動は設計できる',
+    desc: '正しいインセンティブ設計が、個人と社会を動かす原動力になる。',
+    num: '05',
+  },
+];
+---
+
+<Layout
+  title="About / MVV | Strategy&"
+  description="Strategy&のMission・Vision・Valueと団体概要。機会格差をなくし、すべての選択肢を可視化するプラットフォームを目指す。"
+>
+
+  <!-- ===== ページヒーロー ===== -->
+  <section class="page-hero">
+    <div class="film-strip"></div>
+    <div class="container page-hero-inner">
+      <p class="section-label">About</p>
+      <h1 class="page-hero-title">私たちについて</h1>
+      <p class="page-hero-sub">Mission / Vision / Value / Overview</p>
+    </div>
+    <div class="film-strip film-strip--bottom"></div>
+  </section>
+
+  <!-- ===== MISSION ===== -->
+  <section class="section section--dark">
+    <div class="container--narrow">
+      <p class="section-label">Mission</p>
+      <div class="section-divider"></div>
+      <h2 class="mission-headline">
+        後悔しない人生のために、<br>
+        <em>すべての選択肢</em>を可視化する。
+      </h2>
+      <div class="mission-body">
+        <p>
+          機会格差をなくし、誰もが「知っていれば選べた人生」を選べる世界をつくる。
+        </p>
+        <p>
+          情報の非対称性と機会の不可視化が、人生の選択肢を狭めている。
+          「知らなかった」は個人の責任ではなく、構造の問題だ。
+          私たちはテクノロジーとデータで、その構造を変える。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VISION ===== -->
+  <section class="section section--darker vision-section">
+    <div class="container--narrow">
+      <p class="section-label">Vision</p>
+      <div class="section-divider"></div>
+      <h2 class="section-title">目指す世界</h2>
+      <blockquote class="vision-quote">
+        人生のあらゆる意思決定が、<br>最適化される社会をつくる。
+      </blockquote>
+      <p class="section-lead">
+        大学生から社会人まで、すべての機会と選択がデータ化され、
+        個人に最適な次の一歩が提示される世界。
+        機会リマインド・ガクチカログ・AIエージェントがその基盤となる。
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== VALUES ===== -->
+  <section class="section section--dark">
+    <div class="container">
+      <p class="section-label">Values</p>
+      <div class="section-divider"></div>
+      <h2 class="section-title">行動指針</h2>
+      <div class="values-grid">
+        {values.map(v => (
+          <div class="value-card">
+            <span class="value-num">{v.num}</span>
+            <h3 class="value-en">{v.en}</h3>
+            <p class="value-ja">{v.ja}</p>
+            <p class="value-desc">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OVERVIEW ===== -->
+  <section class="section section--light">
+    <div class="container--narrow">
+      <p class="section-label section-label--dark">Overview</p>
+      <div class="section-divider section-divider--purple"></div>
+      <h2 class="section-title" style="color:var(--text-dark)">団体概要</h2>
+      <dl class="overview-list">
+        <div class="overview-row">
+          <dt>名称</dt>
+          <dd>Strategy&amp;</dd>
+        </div>
+        <div class="overview-row">
+          <dt>設立</dt>
+          <dd>2024年2月</dd>
+        </div>
+        <div class="overview-row">
+          <dt>メンバー</dt>
+          <dd>3名</dd>
+        </div>
+        <div class="overview-row">
+          <dt>活動大学</dt>
+          <dd>北海道大学・東北大学</dd>
+        </div>
+        <div class="overview-row">
+          <dt>主な実績</dt>
+          <dd>
+            北海道大学 新歓プラットフォーム 約1,000名利用<br>
+            東北大学祭 プラットフォーム 約1,000名利用
+          </dd>
+        </div>
+        <div class="overview-row">
+          <dt>お問い合わせ</dt>
+          <dd><a href="mailto:info@strategy-and.art">info@strategy-and.art</a></dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="section" style="background: linear-gradient(160deg, #110820 0%, #0a1428 100%); text-align:center">
+    <div class="container--narrow">
+      <p class="section-label" style="text-align:center">Contact</p>
+      <div class="section-divider" style="margin:0 auto 28px"></div>
+      <h2 class="section-title">一緒に、格差のない選択を。</h2>
+      <p class="section-lead" style="margin:0 auto 40px; text-align:center">
+        パートナー・大学連携・スポンサーなど、<br>どんなご相談もお気軽にどうぞ。
+      </p>
+      <a href="mailto:info@strategy-and.art" class="btn btn--gold" style="font-size:16px; padding:18px 48px">
+        メールで問い合わせる
+      </a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ===== ページヒーロー ===== */
+  .page-hero {
+    padding: 160px 0 80px;
+    background: linear-gradient(150deg, #0a0a0a 0%, #110820 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .film-strip--bottom { position: absolute; bottom: 0; left: 0; right: 0; }
+  .page-hero-inner { position: relative; z-index: 1; }
+  .page-hero-title {
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .page-hero-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  /* ===== MISSION ===== */
+  .mission-headline {
+    font-size: clamp(24px, 4vw, 44px);
+    font-weight: 900;
+    line-height: 1.35;
+    color: #fff;
+    margin-bottom: 40px;
+  }
+  .mission-headline em { font-style: normal; color: var(--gold); }
+  .mission-body p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.6);
+    line-height: 2;
+    margin-bottom: 20px;
+  }
+  .mission-body p:first-child {
+    font-size: 18px;
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+  }
+
+  /* ===== VISION ===== */
+  .vision-quote {
+    font-size: clamp(22px, 3.5vw, 36px);
+    font-weight: 900;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.5;
+    margin-bottom: 32px;
+    border-left: 3px solid var(--gold);
+    padding-left: 24px;
+  }
+
+  /* ===== VALUES ===== */
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+    margin-top: 56px;
+  }
+  .value-card {
+    background: var(--bg-card);
+    padding: 40px 32px;
+    position: relative;
+  }
+  .value-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    opacity: 0.3;
+    transition: opacity var(--transition);
+  }
+  .value-card:hover::before { opacity: 1; }
+  .value-num {
+    display: block;
+    font-size: 44px;
+    font-weight: 900;
+    color: rgba(255,180,0,0.12);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .value-en {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+  .value-ja {
+    font-size: 13px;
+    color: rgba(255,180,0,0.7);
+    margin-bottom: 14px;
+  }
+  .value-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.8;
+  }
+
+  /* ===== OVERVIEW ===== */
+  .overview-list {
+    margin-top: 48px;
+  }
+  .overview-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    align-items: start;
+  }
+  .overview-row:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
+  .overview-row dt {
+    font-size: 13px;
+    font-weight: 700;
+    color: #888;
+    letter-spacing: 1px;
+    padding-top: 2px;
+  }
+  .overview-row dd {
+    font-size: 15px;
+    color: var(--text-dark);
+    line-height: 1.8;
+  }
+  .overview-row dd a {
+    color: var(--purple);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 480px) {
+    .overview-row { grid-template-columns: 1fr; gap: 6px; }
+  }
+</style>
