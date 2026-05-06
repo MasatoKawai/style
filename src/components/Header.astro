@@ -1,13 +1,9 @@
 ---
-const navLinks = [
-  { label: 'About', href: '/about' },
-  { label: 'Services', href: '/#services' },
-  { label: 'News', href: '/news' },
-  { label: '新歓映画館', href: '/services/shinkan-movie', highlight: true },
-  { label: '大学祭', href: '/daigaku-style', green: true },
-];
-
 const currentPath = Astro.url.pathname;
+
+const isServicesActive =
+  currentPath.startsWith('/services') ||
+  currentPath.startsWith('/daigaku-style');
 ---
 
 <header class="header" id="header">
@@ -23,33 +19,129 @@ const currentPath = Astro.url.pathname;
 
     <nav class="nav" id="nav">
       <ul class="nav-list">
-        {navLinks.map(link => (
-          <li>
-            <a
-              href={link.href}
-              class:list={['nav-link', { 'nav-link--active': currentPath.startsWith(link.href) && link.href !== '/', 'nav-link--highlight': link.highlight, 'nav-link--green': link.green }]}
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
+
+        <!-- About -->
+        <li>
+          <a href="/about"
+            class:list={['nav-link', { 'nav-link--active': currentPath.startsWith('/about') }]}>
+            About
+          </a>
+        </li>
+
+        <!-- Services ドロップダウン -->
+        <li class="nav-item--dropdown" id="services-item">
+          <button
+            class:list={['nav-link nav-link--btn', { 'nav-link--active': isServicesActive }]}
+            id="services-btn"
+            aria-expanded="false"
+            aria-haspopup="true"
+          >
+            Services
+            <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <div class="dropdown" id="services-dropdown" role="menu">
+            <div class="dropdown-inner">
+
+              <!-- 機会リマインド -->
+              <div class="dropdown-section dropdown-section--single">
+                <a href="/#services" class="dropdown-item dropdown-item--soon" role="menuitem">
+                  <span class="dropdown-icon">🔔</span>
+                  <span class="dropdown-item-body">
+                    <strong>機会リマインド</strong>
+                    <span class="dropdown-badge">2025年リリース予定</span>
+                  </span>
+                </a>
+              </div>
+
+              <div class="dropdown-divider"></div>
+
+              <!-- 新歓 -->
+              <div class="dropdown-section">
+                <p class="dropdown-category">新歓</p>
+                <a href="/services/shinkan-movie" class="dropdown-item" role="menuitem">
+                  <span class="dropdown-icon">🎬</span>
+                  <span class="dropdown-item-body">
+                    <strong>新歓映画館</strong>
+                    <span>PV上映で圧倒的リーチ</span>
+                  </span>
+                </a>
+                <a href="/#services" class="dropdown-item" role="menuitem">
+                  <span class="dropdown-icon">📋</span>
+                  <span class="dropdown-item-body">
+                    <strong>新歓プラットフォーム</strong>
+                    <span>デジタル新歓パンフレット</span>
+                  </span>
+                </a>
+              </div>
+
+              <div class="dropdown-divider"></div>
+
+              <!-- 学祭 -->
+              <div class="dropdown-section">
+                <p class="dropdown-category">学祭</p>
+                <a href="/daigaku-style/media" class="dropdown-item" role="menuitem">
+                  <span class="dropdown-icon">📰</span>
+                  <span class="dropdown-item-body">
+                    <strong>学祭メディア</strong>
+                    <span>運営インタビュー・分析記事</span>
+                  </span>
+                </a>
+                <a href="/daigaku-style/festivals" class="dropdown-item" role="menuitem">
+                  <span class="dropdown-icon">🗓️</span>
+                  <span class="dropdown-item-body">
+                    <strong>学祭カレンダー</strong>
+                    <span>全国の開催日程一覧</span>
+                  </span>
+                </a>
+                <a href="/daigaku-style/platform" class="dropdown-item" role="menuitem">
+                  <span class="dropdown-icon">🎪</span>
+                  <span class="dropdown-item-body">
+                    <strong>学祭プラットフォーム</strong>
+                    <span>運営のデジタル化支援</span>
+                  </span>
+                </a>
+                <a href="/daigaku-style/platform#meetup" class="dropdown-item" role="menuitem">
+                  <span class="dropdown-icon">🤝</span>
+                  <span class="dropdown-item-body">
+                    <strong>学祭運営交流会</strong>
+                    <span>全国運営者のネットワーク</span>
+                  </span>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </li>
+
+        <!-- News -->
+        <li>
+          <a href="/news"
+            class:list={['nav-link', { 'nav-link--active': currentPath.startsWith('/news') }]}>
+            News
+          </a>
+        </li>
+
       </ul>
+
       <a href="/contact" class="btn btn--gold header-cta">お問い合わせ</a>
     </nav>
   </div>
 </header>
 
 <style>
+  /* ===== ヘッダー本体 ===== */
   .header {
     position: fixed;
     top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 0;
+    z-index: 200;
     transition: background 0.3s, box-shadow 0.3s;
   }
   .header.scrolled {
-    background: rgba(10,10,10,0.95);
-    backdrop-filter: blur(12px);
+    background: rgba(10,10,10,0.96);
+    backdrop-filter: blur(14px);
     box-shadow: 0 1px 0 rgba(255,255,255,0.06);
   }
   .header-inner {
@@ -58,50 +150,180 @@ const currentPath = Astro.url.pathname;
     justify-content: space-between;
     height: 68px;
   }
+
+  /* ===== ロゴ ===== */
   .logo {
     display: flex;
     align-items: center;
     gap: 10px;
     font-weight: 900;
+    flex-shrink: 0;
   }
   .logo-mark {
-    width: 34px;
-    height: 34px;
+    width: 34px; height: 34px;
     background: var(--gold);
     color: var(--bg-dark);
     border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: 900;
-    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 900;
   }
-  .logo-text {
-    font-size: 17px;
-    color: #fff;
-    letter-spacing: -0.5px;
-  }
+  .logo-text { font-size: 17px; color: #fff; letter-spacing: -0.5px; }
   .logo-amp { color: var(--gold); }
 
-  .nav { display: flex; align-items: center; gap: 32px; }
-  .nav-list { list-style: none; display: flex; gap: 4px; }
+  /* ===== ナビ ===== */
+  .nav { display: flex; align-items: center; gap: 28px; }
+  .nav-list { list-style: none; display: flex; gap: 2px; align-items: center; }
+
   .nav-link {
     font-size: 14px;
     color: rgba(255,255,255,0.65);
     padding: 8px 14px;
     border-radius: var(--radius);
-    transition: color var(--transition), background var(--transition);
+    transition: color 0.2s, background 0.2s;
     font-weight: 500;
+    white-space: nowrap;
   }
   .nav-link:hover, .nav-link--active { color: #fff; background: rgba(255,255,255,0.07); }
-  .nav-link--highlight { color: var(--gold) !important; }
-  .nav-link--highlight:hover { background: rgba(255,180,0,0.1); }
-  .nav-link--green { color: #00dc64 !important; }
-  .nav-link--green:hover { background: rgba(0,220,100,0.1); }
 
-  .header-cta { padding: 10px 22px; font-size: 13px; }
+  /* ボタン型nav-link（Services） */
+  .nav-link--btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .dropdown-arrow {
+    transition: transform 0.2s;
+    opacity: 0.6;
+  }
+  .nav-item--dropdown.open .dropdown-arrow {
+    transform: rotate(180deg);
+    opacity: 1;
+  }
 
+  .header-cta { padding: 10px 22px; font-size: 13px; flex-shrink: 0; }
+
+  /* ===== ドロップダウン ===== */
+  .nav-item--dropdown {
+    position: relative;
+  }
+
+  .dropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 480px;
+    background: rgba(14,14,14,0.98);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(-8px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    z-index: 300;
+  }
+  .dropdown::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px; height: 12px;
+    background: rgba(14,14,14,0.98);
+    border-left: 1px solid rgba(255,255,255,0.08);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    rotate: 45deg;
+  }
+
+  .nav-item--dropdown.open .dropdown,
+  .nav-item--dropdown:hover .dropdown {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .dropdown-inner {
+    padding: 16px;
+  }
+
+  /* セクション */
+  .dropdown-section {
+    padding: 8px 0;
+  }
+  .dropdown-section--single { padding: 4px 0; }
+  .dropdown-category {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.25);
+    text-transform: uppercase;
+    padding: 4px 12px 8px;
+  }
+  .dropdown-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+    margin: 4px 0;
+  }
+
+  /* アイテム */
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s;
+    color: inherit;
+  }
+  .dropdown-item:hover {
+    background: rgba(255,255,255,0.06);
+  }
+  .dropdown-item--soon {
+    opacity: 0.6;
+    cursor: default;
+    pointer-events: none;
+  }
+  .dropdown-icon {
+    font-size: 20px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .dropdown-item-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .dropdown-item-body strong {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+  }
+  .dropdown-item-body span {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+  }
+  .dropdown-badge {
+    font-size: 10px !important;
+    color: rgba(255,180,0,0.7) !important;
+    background: rgba(255,180,0,0.08);
+    padding: 1px 8px;
+    border-radius: 20px;
+    width: fit-content;
+  }
+
+  /* ===== ハンバーガー ===== */
   .nav-toggle {
     display: none;
     flex-direction: column;
@@ -110,45 +332,130 @@ const currentPath = Astro.url.pathname;
     border: none;
     cursor: pointer;
     padding: 8px;
+    z-index: 210;
   }
   .nav-toggle span {
     display: block;
-    width: 24px;
-    height: 2px;
+    width: 24px; height: 2px;
     background: #fff;
     border-radius: 2px;
     transition: all 0.3s;
   }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  @media (max-width: 768px) {
+  /* ===== モバイル ===== */
+  @media (max-width: 900px) {
     .nav-toggle { display: flex; }
+
     .nav {
       display: none;
       position: fixed;
       inset: 68px 0 0 0;
-      background: rgba(10,10,10,0.98);
+      background: rgba(10,10,10,0.99);
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 24px;
+      align-items: stretch;
+      justify-content: flex-start;
+      gap: 0;
+      overflow-y: auto;
+      padding: 16px 0 40px;
     }
     .nav.open { display: flex; }
-    .nav-list { flex-direction: column; align-items: center; }
-    .nav-link { font-size: 20px; padding: 12px 32px; }
-    .header-cta { font-size: 16px; padding: 14px 40px; }
+
+    .nav-list {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      width: 100%;
+    }
+
+    /* モバイルのnavリンク */
+    .nav-link {
+      font-size: 17px;
+      padding: 16px 28px;
+      border-radius: 0;
+      display: block;
+      width: 100%;
+    }
+    .nav-link--btn {
+      width: 100%;
+      justify-content: space-between;
+      padding: 16px 28px;
+    }
+
+    /* モバイルのドロップダウン（アコーディオン） */
+    .dropdown {
+      position: static;
+      width: 100%;
+      transform: none !important;
+      box-shadow: none;
+      border: none;
+      border-radius: 0;
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: none;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 1;
+      transition: max-height 0.3s ease;
+      pointer-events: none;
+    }
+    .dropdown::before { display: none; }
+    .nav-item--dropdown.open .dropdown {
+      max-height: 600px;
+      pointer-events: auto;
+    }
+    .dropdown-inner { padding: 8px 16px; }
+    .dropdown-item { padding: 12px 16px; }
+    .dropdown-item-body strong { font-size: 15px; }
+
+    .header-cta {
+      margin: 24px 28px 0;
+      font-size: 16px;
+      padding: 16px;
+      text-align: center;
+    }
   }
 </style>
 
 <script>
+  // スクロールでヘッダー背景
   const header = document.getElementById('header');
-  const toggle = document.getElementById('navToggle');
-  const nav = document.getElementById('nav');
-
   window.addEventListener('scroll', () => {
     header?.classList.toggle('scrolled', window.scrollY > 40);
   });
 
+  // ハンバーガーメニュー
+  const toggle = document.getElementById('navToggle') as HTMLButtonElement;
+  const nav    = document.getElementById('nav');
   toggle?.addEventListener('click', () => {
     nav?.classList.toggle('open');
+    toggle.classList.toggle('open');
+  });
+
+  // Services ドロップダウン（クリック / タッチ対応）
+  const servicesItem = document.getElementById('services-item');
+  const servicesBtn  = document.getElementById('services-btn');
+
+  servicesBtn?.addEventListener('click', () => {
+    const isOpen = servicesItem?.classList.toggle('open');
+    servicesBtn.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // デスクトップ：ドロップダウン外クリックで閉じる
+  document.addEventListener('click', (e) => {
+    if (!servicesItem?.contains(e.target as Node)) {
+      servicesItem?.classList.remove('open');
+      servicesBtn?.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // ドロップダウン内リンクをクリックしたらモバイルメニューも閉じる
+  document.querySelectorAll('.dropdown-item').forEach(link => {
+    link.addEventListener('click', () => {
+      nav?.classList.remove('open');
+      toggle?.classList.remove('open');
+      servicesItem?.classList.remove('open');
+    });
   });
 </script>
