@@ -1,0 +1,201 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('gakusai'))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const featured = posts[0];
+const rest = posts.slice(1);
+---
+
+<Layout
+  title="取材記事 | 大学スタイル"
+  description="全国の学祭運営者へのインタビューや、学祭データ分析記事を公開中。大学スタイル学祭メディア。"
+>
+
+  <!-- ===== ページヒーロー ===== -->
+  <section class="page-hero">
+    <div class="film-strip"></div>
+    <div class="container page-hero-inner">
+      <p class="section-label" style="color:rgba(0,220,100,0.8)">大学スタイル</p>
+      <h1 class="page-hero-title">取材記事</h1>
+      <p class="page-hero-sub">Interview / Analysis / Report</p>
+    </div>
+    <div class="film-strip film-strip--bottom"></div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container">
+
+      <!-- フィーチャー記事 -->
+      {featured && (
+        <a href={`/daigaku-style/media/${featured.id.replace(/\.md$/, '')}`} class="featured-card">
+          {featured.data.coverImage && (
+            <div class="featured-thumb">
+              <img src={featured.data.coverImage} alt={featured.data.title} />
+            </div>
+          )}
+          <div class="featured-body">
+            <p class="section-label" style="color:rgba(0,220,100,0.8); margin-bottom:12px">最新記事</p>
+            {featured.data.festivalName && (
+              <span class="article-tag">{featured.data.festivalName}</span>
+            )}
+            <h2 class="featured-title">{featured.data.title}</h2>
+            <p class="featured-excerpt">{featured.data.excerpt}</p>
+            <div class="featured-meta">
+              {featured.data.university && <span>{featured.data.university}</span>}
+              <time>{featured.data.date}</time>
+            </div>
+            <span class="featured-cta">記事を読む →</span>
+          </div>
+        </a>
+      )}
+
+      <!-- 記事一覧 -->
+      <div class="articles-grid">
+        {rest.map(post => (
+          <a href={`/daigaku-style/media/${post.id.replace(/\.md$/, '')}`} class="article-card">
+            {post.data.coverImage && (
+              <div class="article-thumb">
+                <img src={post.data.coverImage} alt={post.data.title} loading="lazy" />
+              </div>
+            )}
+            <div class="article-body">
+              {post.data.festivalName && (
+                <span class="article-tag">{post.data.festivalName}</span>
+              )}
+              <h3>{post.data.title}</h3>
+              <p class="article-excerpt">{post.data.excerpt}</p>
+              <div class="article-meta">
+                {post.data.university && <span>{post.data.university}</span>}
+                <time>{post.data.date}</time>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 160px 0 80px;
+    background: linear-gradient(150deg, #0a0a0a 0%, #0a1a10 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .film-strip--bottom { position: absolute; bottom: 0; left: 0; right: 0; }
+  .page-hero-inner { position: relative; z-index: 1; }
+  .page-hero-title {
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .page-hero-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  /* フィーチャー */
+  .featured-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    background: var(--bg-card);
+    margin-bottom: 2px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .featured-card:hover { background: #1a1a1a; }
+  .featured-thumb { overflow: hidden; aspect-ratio: 4/3; }
+  .featured-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+  .featured-card:hover .featured-thumb img { transform: scale(1.04); }
+  .featured-body {
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+  }
+  .article-tag {
+    display: inline-block;
+    font-size: 11px;
+    color: #00dc64;
+    border: 1px solid rgba(0,220,100,0.3);
+    padding: 2px 10px;
+    border-radius: 20px;
+    width: fit-content;
+  }
+  .featured-title {
+    font-size: clamp(18px, 2.5vw, 26px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.45;
+  }
+  .featured-excerpt {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.8;
+  }
+  .featured-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+  }
+  .featured-cta {
+    font-size: 13px;
+    color: #00dc64;
+    font-weight: 600;
+  }
+
+  /* 記事グリッド */
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 2px;
+  }
+  .article-card {
+    background: var(--bg-card);
+    display: block;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .article-card:hover { background: #1a1a1a; }
+  .article-thumb { aspect-ratio: 16/9; overflow: hidden; }
+  .article-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+  .article-card:hover .article-thumb img { transform: scale(1.04); }
+  .article-body { padding: 24px; }
+  .article-body h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.5;
+    margin: 10px 0 10px;
+  }
+  .article-excerpt {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .article-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+  }
+
+  @media (max-width: 768px) {
+    .featured-card { grid-template-columns: 1fr; }
+    .articles-grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,204 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('gakusai');
+  return posts.map(post => ({
+    params: { slug: post.id.replace(/\.md$/, '') },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout
+  title={`${post.data.title} | 大学スタイル`}
+  description={post.data.excerpt}
+  ogImage={post.data.coverImage}
+>
+
+  <!-- カバー画像 -->
+  {post.data.coverImage && (
+    <div class="article-cover">
+      <img src={post.data.coverImage} alt={post.data.title} />
+      <div class="cover-overlay"></div>
+    </div>
+  )}
+
+  <article class="article-page">
+    <div class="container--narrow">
+
+      <!-- メタ情報 -->
+      <header class="article-header">
+        <div class="article-meta-top">
+          <a href="/daigaku-style/media" class="back-link">← 記事一覧</a>
+          {post.data.festivalName && (
+            <span class="article-tag">{post.data.festivalName}</span>
+          )}
+        </div>
+        <h1 class="article-title">{post.data.title}</h1>
+        <div class="article-meta">
+          {post.data.university && (
+            <span class="meta-item">🏫 {post.data.university}</span>
+          )}
+          <time class="meta-item">📅 {post.data.date}</time>
+          {post.data.noteUrl && (
+            <a href={post.data.noteUrl} target="_blank" rel="noopener" class="meta-item meta-note">
+              📝 元記事（Note）
+            </a>
+          )}
+        </div>
+        {post.data.tags && (
+          <div class="article-tags">
+            {post.data.tags.map(tag => (
+              <span class="tag">#{tag}</span>
+            ))}
+          </div>
+        )}
+      </header>
+
+      <!-- 本文 -->
+      <div class="article-body prose">
+        <Content />
+      </div>
+
+      <!-- フッターナビ -->
+      <div class="article-footer">
+        <a href="/daigaku-style/media" class="btn btn--outline">← 記事一覧に戻る</a>
+        <a href="/daigaku-style/festivals" class="btn btn--outline">学祭カレンダーを見る →</a>
+      </div>
+
+    </div>
+  </article>
+
+</Layout>
+
+<style>
+  .article-cover {
+    height: 420px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 72px; /* header height */
+  }
+  .article-cover img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .cover-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, rgba(10,10,10,0.9) 100%);
+  }
+
+  .article-page {
+    background: var(--bg-dark);
+    padding: 64px 0 120px;
+  }
+
+  .article-header { margin-bottom: 56px; }
+  .article-meta-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .back-link {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: #00dc64; }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 11px;
+    color: #00dc64;
+    border: 1px solid rgba(0,220,100,0.3);
+    padding: 2px 10px;
+    border-radius: 20px;
+  }
+  .article-title {
+    font-size: clamp(22px, 3.5vw, 38px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.4;
+    margin-bottom: 24px;
+  }
+  .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .meta-item {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+  }
+  .meta-note { color: rgba(0,220,100,0.7); }
+  .meta-note:hover { color: #00dc64; }
+  .article-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.05);
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  /* 本文スタイル */
+  .prose {
+    color: rgba(255,255,255,0.75);
+    font-size: 16px;
+    line-height: 1.9;
+  }
+  .prose :global(h2) {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin: 56px 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0,220,100,0.2);
+  }
+  .prose :global(h3) {
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    margin: 36px 0 14px;
+  }
+  .prose :global(p) { margin-bottom: 24px; }
+  .prose :global(strong) { color: #fff; font-weight: 700; }
+  .prose :global(em) { color: #00dc64; font-style: normal; }
+  .prose :global(blockquote) {
+    border-left: 3px solid #00dc64;
+    padding: 12px 24px;
+    margin: 32px 0;
+    background: rgba(0,220,100,0.05);
+    color: rgba(255,255,255,0.6);
+    font-size: 14px;
+  }
+  .prose :global(hr) {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin: 48px 0;
+  }
+  .prose :global(ol), .prose :global(ul) {
+    padding-left: 24px;
+    margin-bottom: 24px;
+  }
+  .prose :global(li) { margin-bottom: 8px; }
+  .prose :global(a) { color: #00dc64; }
+
+  .article-footer {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+</style>

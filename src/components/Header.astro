@@ -4,6 +4,7 @@ const navLinks = [
   { label: 'Services', href: '/#services' },
   { label: 'News', href: '/news' },
   { label: '新歓映画館', href: '/services/shinkan-movie', highlight: true },
+  { label: '大学スタイル', href: '/daigaku-style', green: true },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -27,7 +28,7 @@ const currentPath = Astro.url.pathname;
           <li>
             <a
               href={link.href}
-              class:list={['nav-link', { 'nav-link--active': currentPath === link.href, 'nav-link--highlight': link.highlight }]}
+              class:list={['nav-link', { 'nav-link--active': currentPath.startsWith(link.href) && link.href !== '/', 'nav-link--highlight': link.highlight, 'nav-link--green': link.green }]}
             >
               {link.label}
             </a>
@@ -97,6 +98,8 @@ const currentPath = Astro.url.pathname;
   .nav-link:hover, .nav-link--active { color: #fff; background: rgba(255,255,255,0.07); }
   .nav-link--highlight { color: var(--gold) !important; }
   .nav-link--highlight:hover { background: rgba(255,180,0,0.1); }
+  .nav-link--green { color: #00dc64 !important; }
+  .nav-link--green:hover { background: rgba(0,220,100,0.1); }
 
   .header-cta { padding: 10px 22px; font-size: 13px; }
 
