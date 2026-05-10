@@ -83,11 +83,15 @@ const datedFestivals = festivals.filter(f => f.startDate);
       <div class="festivals-grid" id="festivals-grid">
         {festivals.map(f => (
           <div
-            class="festival-card"
+            class={`festival-card${f.slug ? ' festival-card--linked' : ''}`}
             data-month={f.month}
             data-pref={f.prefecture}
             data-sponsor={f.sponsorStatus ?? 'unknown'}
+            data-slug={f.slug ?? ''}
           >
+            {f.slug && (
+              <a href={`/festivals/${f.slug}`} class="card-link-overlay" aria-label={`${f.festivalName} 詳細`}></a>
+            )}
             <div class="card-header">
               <div class="festival-month">{monthNames[f.month]}</div>
               {f.sponsorStatus === 'open' && (
@@ -107,11 +111,11 @@ const datedFestivals = festivals.filter(f => f.startDate);
               )}
             </div>
             <div class="card-footer">
-              {f.url && (
-                <a href={f.url} target="_blank" rel="noopener" class="festival-link">公式サイト →</a>
+              {f.slug && (
+                <a href={`/festivals/${f.slug}`} class="detail-link">詳細を見る →</a>
               )}
               {f.sponsorStatus === 'open' && (
-                <a href="/contact" class="sponsor-link">広告のご相談 →</a>
+                <a href="/contact" class="sponsor-link" onClick="event.stopPropagation()">広告のご相談 →</a>
               )}
             </div>
           </div>
@@ -251,6 +255,15 @@ const datedFestivals = festivals.filter(f => f.startDate);
     border: 1px solid rgba(255,255,255,0.08);
     display: flex;
     flex-direction: column;
+    text-decoration: none;
+  }
+  .cd-card--linked {
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .cd-card--linked:hover {
+    border-color: rgba(0,220,100,0.4);
+    transform: translateY(-2px);
   }
   .cd-top {
     padding: 28px 24px 22px;
@@ -456,9 +469,20 @@ const datedFestivals = festivals.filter(f => f.startDate);
     flex-direction: column;
     gap: 10px;
     transition: background 0.2s;
+    position: relative;
   }
   .festival-card:hover { background: #1a1a1a; }
   .festival-card[hidden] { display: none; }
+  .festival-card--linked { cursor: pointer; }
+  .festival-card--linked:hover { background: #1a1a1a; }
+  .card-link-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .festival-card .card-header,
+  .festival-card .festival-body,
+  .festival-card .card-footer { position: relative; z-index: 1; }
 
   .card-header {
     display: flex;
@@ -509,16 +533,20 @@ const datedFestivals = festivals.filter(f => f.startDate);
     gap: 12px;
     flex-wrap: wrap;
   }
-  .festival-link {
+  .detail-link {
     font-size: 12px;
     color: #00dc64;
     text-decoration: none;
+    position: relative;
+    z-index: 2;
   }
-  .festival-link:hover { text-decoration: underline; }
+  .detail-link:hover { text-decoration: underline; }
   .sponsor-link {
     font-size: 12px;
     color: #ffb400;
     text-decoration: none;
+    position: relative;
+    z-index: 2;
   }
   .sponsor-link:hover { text-decoration: underline; }
 
@@ -695,10 +723,13 @@ const datedFestivals = festivals.filter(f => f.startDate);
         ? `<span class="cd-tag cd-tag--student">在籍 ${f.studentCount}</span>` : '';
       const sponsorBtn = f.sponsorStatus === 'open'
         ? `<a href="/contact" class="cd-sponsor-btn">📢 広告・スポンサーを相談する</a>` : '';
-      const siteLink = f.url
-        ? `<a href="${f.url}" target="_blank" rel="noopener" class="cd-link">公式サイト →</a>` : '';
+      const detailLink = f.slug
+        ? `<a href="/festivals/${f.slug}" class="cd-link">詳細を見る →</a>`
+        : (f.url ? `<a href="${f.url}" target="_blank" rel="noopener" class="cd-link">公式サイト →</a>` : '');
+      const cardTag = f.slug ? 'a' : 'div';
+      const cardHref = f.slug ? `href="/festivals/${f.slug}"` : '';
       grid.insertAdjacentHTML('beforeend', `
-        <div class="cd-card ${typeClass}">
+        <${cardTag} ${cardHref} class="cd-card ${typeClass}${f.slug ? ' cd-card--linked' : ''}">
           <div class="cd-top">
             <div class="cd-top-row">
               <div class="cd-num-wrap">
@@ -718,10 +749,10 @@ const datedFestivals = festivals.filter(f => f.startDate);
             <p class="cd-date">🗓 ${f.dateText}</p>
             <div class="cd-actions">
               ${sponsorBtn}
-              ${siteLink}
+              ${detailLink}
             </div>
           </div>
-        </div>
+        </${cardTag}>
       `);
     }
   }
