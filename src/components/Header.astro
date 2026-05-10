@@ -352,14 +352,19 @@ const isServicesActive =
     .nav {
       display: none;
       position: fixed;
-      inset: 68px 0 0 0;
+      top: 68px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: calc(100dvh - 68px);
       background: rgba(10,10,10,0.99);
       flex-direction: column;
       align-items: stretch;
       justify-content: flex-start;
       gap: 0;
       overflow-y: auto;
-      padding: 16px 0 40px;
+      -webkit-overflow-scrolling: touch;
+      padding: 16px 0 env(safe-area-inset-bottom, 40px);
     }
     .nav.open { display: flex; }
 
@@ -379,6 +384,7 @@ const isServicesActive =
       width: 100%;
     }
     .nav-link--btn {
+      display: flex;
       width: 100%;
       justify-content: space-between;
       padding: 16px 28px;
@@ -402,7 +408,7 @@ const isServicesActive =
     }
     .dropdown::before { display: none; }
     .nav-item--dropdown.open .dropdown {
-      max-height: 600px;
+      max-height: 1000px;
       pointer-events: auto;
     }
     .dropdown-inner { padding: 8px 16px; }

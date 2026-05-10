@@ -1,6 +1,6 @@
 // 学祭カレンダーデータ
 // ベース：ナレッジステーション (https://www.gakkou.net/daigaku/gakuensai/)
-// 更新日：2025年5月
+// 更新日：2026年5月
 
 export interface Festival {
   university: string;
@@ -46,6 +46,7 @@ export const festivals: Festival[] = [
   { university: "立命館大学", festivalName: "立命祭", prefecture: "京都", month: 11, dateText: "11月上旬（予定）" },
   { university: "関西大学", festivalName: "関大まつり", prefecture: "大阪", month: 11, dateText: "11月中旬（予定）" },
   { university: "関西学院大学", festivalName: "関学祭", prefecture: "兵庫", month: 10, dateText: "10月下旬（予定）" },
+  { university: "明治学院大学", festivalName: "戸塚まつり", prefecture: "神奈川", month: 5, dateText: "5月下旬（予定）", url: "https://www.instagram.com/gakusei_style/" },
 ];
 
 export const prefectures = [...new Set(festivals.map(f => f.prefecture))].sort();
