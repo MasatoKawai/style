@@ -56,7 +56,7 @@ export const festivals: Festival[] = [
     university: "明治学院大学", festivalName: "戸塚まつり", prefecture: "神奈川", month: 5,
     slug: "meijigakuin-totsuka",
     dateText: "5月24日（予定）", startDate: "2026-05-24", endDate: "2026-05-24",
-    url: "https://www.instagram.com/gakusei_style/", sponsorStatus: "open",
+    sponsorStatus: "open",
     reach: "約5,000人", studentCount: "約1万人",
     venue: "戸塚キャンパス",
   },

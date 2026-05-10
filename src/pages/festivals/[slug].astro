@@ -153,17 +153,13 @@ const sponsorColor = {
 
           <div class="sponsor-card">
             <p class="sponsor-card-eyebrow">FOR COMPANIES</p>
-            <h3 class="sponsor-card-title">この学祭に<br>広告を出しませんか？</h3>
-
-            <div class="sponsor-status">
-              <span class="status-dot" style={`background:${sponsorColor}`}></span>
-              <span style={`color:${sponsorColor}`}>{sponsorLabel}</span>
-            </div>
+            <h3 class="sponsor-card-title">この学祭への<br>協賛を検討中ですか？</h3>
+            <p class="sponsor-card-desc">大学スタイルでは、学祭協賛・広告出稿を検討している企業様の情報収集・相談をサポートしています。</p>
 
             {f.reach && (
               <div class="sponsor-reach">
                 <p class="sponsor-reach-num">{f.reach}</p>
-                <p class="sponsor-reach-label">の来場者にリーチ</p>
+                <p class="sponsor-reach-label">の来場者規模</p>
               </div>
             )}
             {f.studentCount && (
@@ -178,7 +174,7 @@ const sponsorColor = {
             )}
 
             <a href="/contact" class="btn btn--gold sponsor-cta-full">
-              スポンサー・広告のご相談
+              学祭協賛について相談する
             </a>
             <p class="sponsor-note">無料相談 · 返信は1営業日以内</p>
           </div>
@@ -369,6 +365,11 @@ const sponsorColor = {
     font-weight: 700;
     color: #fff;
     line-height: 1.4;
+  }
+  .sponsor-card-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.7;
   }
   .sponsor-status {
     display: flex;
