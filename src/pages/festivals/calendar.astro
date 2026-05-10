@@ -278,121 +278,148 @@ const totalCount = festivals.length;
   .cd-featured {
     border-radius: 16px;
     border: 1px solid rgba(0,220,100,0.2);
-    background: rgba(0,220,100,0.05);
-    padding: 32px 36px;
+    background: rgba(0,220,100,0.04);
+    padding: 32px 36px 28px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
     text-decoration: none;
     transition: border-color 0.2s, transform 0.15s;
     cursor: pointer;
+    overflow: hidden;
+    position: relative;
   }
-  .cd-featured:hover { border-color: rgba(0,220,100,0.5); transform: translateY(-2px); }
-  .cd-featured--today { background: rgba(0,220,100,0.08); border-color: rgba(0,220,100,0.4); }
-  .cd-featured--ongoing { background: rgba(255,180,0,0.06); border-color: rgba(255,180,0,0.25); }
+  .cd-featured:hover { border-color: rgba(0,220,100,0.45); transform: translateY(-2px); }
+  .cd-featured--today { background: rgba(0,220,100,0.07); border-color: rgba(0,220,100,0.4); }
+  .cd-featured--ongoing { background: rgba(255,180,0,0.05); border-color: rgba(255,180,0,0.25); }
 
-  .cd-feat-top { display: flex; align-items: flex-end; justify-content: space-between; }
-  .cd-feat-count {
+  /* カウント数字ブロック — ページの主役 */
+  .cd-feat-count-block {
     display: flex;
-    align-items: baseline;
-    gap: 6px;
+    align-items: flex-end;
+    gap: 0;
+    line-height: 1;
+    margin-bottom: 4px;
   }
   .cd-feat-num {
-    font-size: clamp(64px, 10vw, 96px);
+    font-size: clamp(80px, 12vw, 112px);
     font-weight: 900;
     color: #00dc64;
-    line-height: 1;
-    letter-spacing: -4px;
+    letter-spacing: -6px;
+    line-height: 0.9;
   }
   .cd-featured--ongoing .cd-feat-num { color: #ffb400; }
-  .cd-featured--today .cd-feat-num { font-size: 48px; letter-spacing: 0; }
+  .cd-featured--today .cd-feat-num { font-size: 52px; letter-spacing: -1px; }
   .cd-feat-unit {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
-    color: rgba(0,220,100,0.6);
-    padding-bottom: 10px;
+    color: rgba(0,220,100,0.55);
+    padding-bottom: 12px;
+    padding-left: 8px;
   }
-  .cd-featured--ongoing .cd-feat-unit { color: rgba(255,180,0,0.6); }
-  .cd-feat-reach {
-    text-align: right;
-  }
-  .cd-feat-reach-num {
-    font-size: 24px;
+  .cd-featured--ongoing .cd-feat-unit { color: rgba(255,180,0,0.55); }
+
+  /* 学祭名 — 2番目に目立つ要素 */
+  .cd-feat-name {
+    font-size: 26px;
     font-weight: 900;
     color: #fff;
-    line-height: 1;
-  }
-  .cd-feat-reach-label {
-    font-size: 11px;
-    color: rgba(255,255,255,0.35);
-    letter-spacing: 1px;
+    line-height: 1.2;
+    margin-bottom: 4px;
   }
 
+  /* それ以下はすべて小さく・薄く */
   .cd-feat-divider {
     height: 1px;
     background: rgba(255,255,255,0.07);
-    margin: 4px 0;
+    margin: 14px 0 12px;
   }
-
-  .cd-feat-name {
-    font-size: 22px;
-    font-weight: 700;
-    color: #fff;
+  .cd-feat-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
   .cd-feat-univ {
-    font-size: 14px;
-    color: rgba(255,255,255,0.45);
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
   }
   .cd-feat-date {
     font-size: 13px;
-    color: rgba(255,180,0,0.8);
+    color: rgba(255,180,0,0.75);
   }
   .cd-feat-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 4px;
+    margin-top: 16px;
   }
-  .cd-feat-pref {
-    font-size: 12px;
-    color: rgba(255,255,255,0.3);
+  .cd-feat-reach-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+  .cd-feat-reach-num {
+    font-size: 15px;
+    font-weight: 700;
+    color: rgba(0,220,100,0.7);
+  }
+  .cd-feat-reach-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
   }
   .cd-feat-cta {
     font-size: 12px;
     font-weight: 700;
-    color: #00dc64;
+    color: rgba(0,220,100,0.6);
+    letter-spacing: 0.5px;
   }
-  .cd-featured--ongoing .cd-feat-cta { color: #ffb400; }
+  .cd-featured:hover .cd-feat-cta { color: #00dc64; }
+  .cd-featured--ongoing .cd-feat-cta { color: rgba(255,180,0,0.6); }
 
   /* ===== リスト側 (JS生成) ===== */
-  .cd-list { display: flex; flex-direction: column; gap: 8px; }
+  .cd-list { display: flex; flex-direction: column; gap: 6px; }
   .cd-list-item {
     display: flex;
     align-items: center;
     gap: 14px;
-    padding: 14px 18px;
+    padding: 12px 16px;
     background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.06);
     border-radius: 10px;
     text-decoration: none;
     transition: background 0.15s, border-color 0.15s;
     cursor: pointer;
   }
-  .cd-list-item:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.15); }
-  .cd-list-badge {
+  .cd-list-item:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.12); }
+
+  /* 数字を一番目立たせる */
+  .cd-list-days {
+    font-size: 28px;
+    font-weight: 900;
+    color: #00dc64;
+    line-height: 1;
+    letter-spacing: -1px;
+    flex-shrink: 0;
+    min-width: 44px;
+    text-align: right;
+  }
+  .cd-list-days--ongoing { color: #ffb400; }
+  .cd-list-unit {
     font-size: 11px;
     font-weight: 700;
-    color: rgba(0,220,100,0.8);
-    background: rgba(0,220,100,0.08);
-    border: 1px solid rgba(0,220,100,0.2);
-    padding: 4px 10px;
-    border-radius: 20px;
-    white-space: nowrap;
+    color: rgba(0,220,100,0.5);
     flex-shrink: 0;
-    min-width: 52px;
-    text-align: center;
+    padding-bottom: 2px;
+    align-self: flex-end;
   }
-  .cd-list-badge--ongoing { color: rgba(255,180,0,0.8); background: rgba(255,180,0,0.08); border-color: rgba(255,180,0,0.2); }
+  .cd-list-unit--ongoing { color: rgba(255,180,0,0.5); }
+
+  .cd-list-divider {
+    width: 1px;
+    height: 28px;
+    background: rgba(255,255,255,0.08);
+    flex-shrink: 0;
+  }
+
   .cd-list-info { flex: 1; min-width: 0; }
   .cd-list-name {
     font-size: 14px;
@@ -404,12 +431,12 @@ const totalCount = festivals.length;
   }
   .cd-list-sub {
     font-size: 11px;
-    color: rgba(255,255,255,0.35);
-    margin-top: 1px;
+    color: rgba(255,255,255,0.3);
+    margin-top: 2px;
   }
   .cd-list-arrow {
-    font-size: 12px;
-    color: rgba(255,255,255,0.2);
+    font-size: 11px;
+    color: rgba(255,255,255,0.15);
     flex-shrink: 0;
   }
 
@@ -720,38 +747,38 @@ const totalCount = festivals.length;
       const featTag = first.slug ? 'a' : 'div';
       const featHref = first.slug ? `href="/festivals/${first.slug}"` : '';
       const reachHtml = first.reach
-        ? `<div class="cd-feat-reach"><div class="cd-feat-reach-num">${first.reach}</div><div class="cd-feat-reach-label">想定来場者</div></div>` : '';
-      const sponsorHtml = first.sponsorStatus === 'open'
-        ? `<a href="/contact" style="font-size:12px;color:#ffb400;text-decoration:none;font-weight:700;z-index:2;position:relative;" onClick="event.stopPropagation()">広告のご相談 →</a>` : '';
+        ? `<div class="cd-feat-reach-wrap"><span class="cd-feat-reach-num">${first.reach}</span><span class="cd-feat-reach-label">来場者</span></div>` : '';
 
       const featuredHtml = `
         <${featTag} ${featHref} class="cd-featured ${featClass}">
-          <div class="cd-feat-top">
-            <div class="cd-feat-count">
-              <span class="cd-feat-num">${first.info.num}</span>
-              <span class="cd-feat-unit">${first.info.unit}</span>
-            </div>
-            ${reachHtml}
+          <div class="cd-feat-count-block">
+            <span class="cd-feat-num">${first.info.num}</span>
+            <span class="cd-feat-unit">${first.info.unit}</span>
           </div>
-          <div class="cd-feat-divider"></div>
           <div class="cd-feat-name">${first.festivalName}</div>
-          <div class="cd-feat-univ">${first.university}</div>
-          <div class="cd-feat-date">🗓 ${first.dateText}</div>
+          <div class="cd-feat-divider"></div>
+          <div class="cd-feat-meta">
+            <span class="cd-feat-univ">${first.university}</span>
+            <span class="cd-feat-date">🗓 ${first.dateText}</span>
+          </div>
           <div class="cd-feat-footer">
-            <span class="cd-feat-pref">📍 ${first.prefecture}</span>
-            ${first.slug ? `<span class="cd-feat-cta">詳細を見る →</span>` : sponsorHtml}
+            ${reachHtml}
+            <span class="cd-feat-cta">詳細を見る →</span>
           </div>
         </${featTag}>
       `;
 
       const listItems = rest.map(f => {
-        const badgeClass = f.info.type === 'ongoing' ? 'cd-list-badge--ongoing' : '';
-        const badgeText = f.info.type === 'ongoing' ? `${f.info.num}日目` : `${f.info.num}日後`;
+        const isOngoing = f.info.type === 'ongoing';
+        const daysClass = isOngoing ? 'cd-list-days--ongoing' : '';
+        const unitClass = isOngoing ? 'cd-list-unit--ongoing' : '';
         const itemTag = f.slug ? 'a' : 'div';
         const itemHref = f.slug ? `href="/festivals/${f.slug}"` : '';
         return `
           <${itemTag} ${itemHref} class="cd-list-item">
-            <span class="cd-list-badge ${badgeClass}">${badgeText}</span>
+            <span class="cd-list-days ${daysClass}">${f.info.num}</span>
+            <span class="cd-list-unit ${unitClass}">${f.info.unit}</span>
+            <div class="cd-list-divider"></div>
             <div class="cd-list-info">
               <div class="cd-list-name">${f.festivalName}</div>
               <div class="cd-list-sub">${f.university} · ${f.prefecture}</div>
