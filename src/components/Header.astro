@@ -3,7 +3,7 @@ const currentPath = Astro.url.pathname;
 
 const isServicesActive =
   currentPath.startsWith('/services') ||
-  currentPath.startsWith('/daigaku-style');
+  currentPath.startsWith('/festivals');
 ---
 
 <header class="header" id="header">
@@ -82,28 +82,28 @@ const isServicesActive =
               <!-- 学祭 -->
               <div class="dropdown-section">
                 <p class="dropdown-category">学祭</p>
-                <a href="/daigaku-style/media" class="dropdown-item" role="menuitem">
+                <a href="/festivals/media" class="dropdown-item" role="menuitem">
                   <span class="dropdown-icon">📰</span>
                   <span class="dropdown-item-body">
                     <strong>学祭メディア</strong>
                     <span>運営インタビュー・分析記事</span>
                   </span>
                 </a>
-                <a href="/daigaku-style/festivals" class="dropdown-item" role="menuitem">
+                <a href="/festivals/calendar" class="dropdown-item" role="menuitem">
                   <span class="dropdown-icon">🗓️</span>
                   <span class="dropdown-item-body">
                     <strong>学祭カレンダー</strong>
                     <span>全国の開催日程一覧</span>
                   </span>
                 </a>
-                <a href="/daigaku-style/platform" class="dropdown-item" role="menuitem">
+                <a href="/festivals/platform" class="dropdown-item" role="menuitem">
                   <span class="dropdown-icon">🎪</span>
                   <span class="dropdown-item-body">
                     <strong>学祭プラットフォーム</strong>
                     <span>運営のデジタル化支援</span>
                   </span>
                 </a>
-                <a href="/daigaku-style/platform#meetup" class="dropdown-item" role="menuitem">
+                <a href="/festivals/platform#meetup" class="dropdown-item" role="menuitem">
                   <span class="dropdown-icon">🤝</span>
                   <span class="dropdown-item-body">
                     <strong>学祭運営交流会</strong>

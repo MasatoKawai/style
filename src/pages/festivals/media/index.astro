@@ -30,7 +30,7 @@ const rest = posts.slice(1);
 
       <!-- フィーチャー記事 -->
       {featured && (
-        <a href={`/daigaku-style/media/${featured.id.replace(/\.md$/, '')}`} class="featured-card">
+        <a href={`/festivals/media/${featured.id.replace(/\.md$/, '')}`} class="featured-card">
           {featured.data.coverImage && (
             <div class="featured-thumb">
               <img src={featured.data.coverImage} alt={featured.data.title} />
@@ -55,7 +55,7 @@ const rest = posts.slice(1);
       <!-- 記事一覧 -->
       <div class="articles-grid">
         {rest.map(post => (
-          <a href={`/daigaku-style/media/${post.id.replace(/\.md$/, '')}`} class="article-card">
+          <a href={`/festivals/media/${post.id.replace(/\.md$/, '')}`} class="article-card">
             {post.data.coverImage && (
               <div class="article-thumb">
                 <img src={post.data.coverImage} alt={post.data.title} loading="lazy" />

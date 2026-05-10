@@ -25,8 +25,8 @@ const articles = (await getCollection('gakusai'))
         大学祭をもっと良くするための情報プラットフォーム。
       </p>
       <div class="ds-hero-ctas">
-        <a href="/daigaku-style/festivals" class="btn btn--gold">学祭カレンダーを見る</a>
-        <a href="/daigaku-style/media" class="btn btn--outline">取材記事を読む</a>
+        <a href="/festivals/calendar" class="btn btn--gold">学祭カレンダーを見る</a>
+        <a href="/festivals/media" class="btn btn--outline">取材記事を読む</a>
       </div>
     </div>
     <div class="film-strip film-strip--bottom"></div>
@@ -65,21 +65,21 @@ const articles = (await getCollection('gakusai'))
       <div class="section-divider"></div>
       <div class="ds-menu-grid">
 
-        <a href="/daigaku-style/festivals" class="ds-menu-card">
+        <a href="/festivals/calendar" class="ds-menu-card">
           <div class="ds-menu-icon">🗓️</div>
           <h3>学祭カレンダー</h3>
           <p>全国の大学祭の開催日程を月別・地域別に一覧。開催申請フォームで情報追加も可能。</p>
           <span class="ds-menu-link">カレンダーを見る →</span>
         </a>
 
-        <a href="/daigaku-style/platform" class="ds-menu-card">
+        <a href="/festivals/platform" class="ds-menu-card">
           <div class="ds-menu-icon">🏟️</div>
           <h3>学祭プラットフォーム</h3>
           <p>学祭運営のデジタル化を支援。導入実績や、運営交流会の情報はこちら。</p>
           <span class="ds-menu-link">詳細を見る →</span>
         </a>
 
-        <a href="/daigaku-style/media" class="ds-menu-card">
+        <a href="/festivals/media" class="ds-menu-card">
           <div class="ds-menu-icon">📰</div>
           <h3>取材記事</h3>
           <p>全国の学祭運営者へのインタビューや、学祭データ分析記事を公開中。</p>
@@ -98,7 +98,7 @@ const articles = (await getCollection('gakusai'))
       <h2 class="section-title">取材・分析レポート</h2>
       <div class="ds-articles-grid">
         {articles.map(post => (
-          <a href={`/daigaku-style/media/${post.id.replace(/\.md$/, '')}`} class="ds-article-card">
+          <a href={`/festivals/media/${post.id.replace(/\.md$/, '')}`} class="ds-article-card">
             {post.data.coverImage && (
               <div class="ds-article-thumb">
                 <img src={post.data.coverImage} alt={post.data.title} loading="lazy" />
@@ -116,7 +116,7 @@ const articles = (await getCollection('gakusai'))
         ))}
       </div>
       <div style="text-align:center; margin-top:48px">
-        <a href="/daigaku-style/media" class="btn btn--outline">すべての記事を見る</a>
+        <a href="/festivals/media" class="btn btn--outline">すべての記事を見る</a>
       </div>
     </div>
   </section>
