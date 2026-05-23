@@ -1,6 +1,6 @@
 // 学祭カレンダーデータ
 // ベース：ナレッジステーション (https://www.gakkou.net/daigaku/gakuensai/) + 各公式サイト
-// 更新日：2026年5月10日（Company/style/festivals/materials/ 参照）
+// 更新日：2026年5月24日（Company/style/festivals/materials/ 参照）
 
 export interface Festival {
   university: string;
@@ -75,9 +75,9 @@ export const festivals: Festival[] = [
   {
     university: "名古屋大学", festivalName: "名大祭", prefecture: "愛知", month: 6,
     slug: "meidai",
-    dateText: "6月6日〜8日（予定）", startDate: "2026-06-06", endDate: "2026-06-08",
+    dateText: "6月11日〜14日", startDate: "2026-06-11", endDate: "2026-06-14",
     sponsorStatus: "unknown", reach: "約3万人", studentCount: "約1.6万人",
-    venue: "東山キャンパス",
+    venue: "東山キャンパス", history: "第67回",
   },
 
   // ===== 10月 =====
@@ -148,6 +148,52 @@ export const festivals: Festival[] = [
   { university: "関西大学", festivalName: "関大まつり", prefecture: "大阪", month: 11, slug: "kansai", dateText: "11月中旬（予定）", sponsorStatus: "unknown" },
   { university: "広島大学", festivalName: "広大祭", prefecture: "広島", month: 11, slug: "hiroshima", dateText: "11月上旬（予定）", sponsorStatus: "unknown" },
   { university: "九州大学", festivalName: "九大祭", prefecture: "福岡", month: 11, slug: "kyushu", dateText: "11月中旬（予定）", sponsorStatus: "unknown" },
+  {
+    university: "日本大学", festivalName: "桜麗祭", prefecture: "東京", month: 11,
+    slug: "nihon-u-ohrei",
+    dateText: "11月上旬（予定）",
+    sponsorStatus: "unknown", studentCount: "約6.7万人",
+    venue: "世田谷キャンパス（文理学部）",
+    description: "日本大学文理学部（世田谷キャンパス）で毎年11月に開催される学部祭。屋台・ステージ企画・展示など多彩なプログラムが展開される。日本最大規模の学生数を誇る日本大学の文化系学部を代表する学園祭。",
+  },
+  {
+    university: "近畿大学", festivalName: "生駒祭", prefecture: "大阪", month: 11,
+    slug: "kindai-ikoma",
+    dateText: "11月2日〜4日（予定）", startDate: "2026-11-02", endDate: "2026-11-04",
+    sponsorStatus: "unknown", reach: "約10万人超", studentCount: "約3.5万人",
+    venue: "東大阪キャンパス",
+    description: "近畿大学東大阪キャンパスで毎年11月に開催される西日本最大級の大学祭。170店の屋台にキャッシュレス決済を導入するなど革新的な運営で知られ、パレードや大型ライブも行われる。",
+    highlights: ["西日本最大級の規模", "全屋台キャッシュレス対応", "近大通りパレード", "大型アーティストライブ"],
+    instagramUrl: "https://www.instagram.com/ikomasai_kindai/",
+    xUrl: "https://x.com/ikomasai_kindai",
+  },
+  {
+    university: "東洋大学", festivalName: "白山祭", prefecture: "東京", month: 11,
+    slug: "toyo-hakusan",
+    dateText: "11月上旬（予定）",
+    url: "https://www.hakusansai.com/", sponsorStatus: "unknown",
+    studentCount: "約3.1万人",
+    venue: "白山キャンパス",
+    instagramUrl: "https://www.instagram.com/hakusanfes/",
+    xUrl: "https://x.com/toyo_hakusansai",
+  },
+  {
+    university: "東海大学", festivalName: "建学祭", prefecture: "神奈川", month: 11,
+    slug: "tokai-kengaku",
+    dateText: "11月1日〜3日（予定）", startDate: "2026-11-01", endDate: "2026-11-03",
+    url: "https://shonan-kengakusai.com/", sponsorStatus: "unknown",
+    studentCount: "約2.9万人",
+    venue: "湘南キャンパス",
+    instagramUrl: "https://www.instagram.com/kengakusai_s/",
+    xUrl: "https://x.com/kengakusai_s",
+  },
+  {
+    university: "帝京大学", festivalName: "帝祭", prefecture: "東京", month: 11,
+    slug: "teikyo",
+    dateText: "11月上旬（予定）",
+    sponsorStatus: "unknown", studentCount: "約2.3万人",
+    venue: "八王子キャンパス",
+  },
 ];
 
 export const prefectures = [...new Set(festivals.map(f => f.prefecture))].sort();
