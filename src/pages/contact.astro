@@ -230,19 +230,6 @@ const FORMSPREE_ID = import.meta.env.FORMSPREE_ID ?? 'meevdpaj';
             ></textarea>
           </div>
 
-          <!-- 同意チェックボックス -->
-          <div class="form-group consent-group">
-            <label class="consent-label">
-              <input type="checkbox" id="consent" name="同意" value="同意する" required />
-              <span class="checkbox-custom"></span>
-              <span class="consent-text">
-                <a href="/privacy" target="_blank">プライバシーポリシー</a>および
-                <a href="/terms" target="_blank">利用規約</a>に同意します。
-                送信データはFormspree（米国）経由で当団体に届きます。
-              </span>
-            </label>
-          </div>
-
           <!-- 送信ボタン -->
           <div class="form-submit">
             <button type="submit" class="btn btn--gold submit-btn" id="submit-btn">
@@ -250,6 +237,9 @@ const FORMSPREE_ID = import.meta.env.FORMSPREE_ID ?? 'meevdpaj';
             </button>
             <p class="form-note">
               送信後、担当者より2〜3営業日以内にご連絡いたします。
+            </p>
+            <p class="form-consent-note">
+              「送信する」をクリックすることで、<a href="/privacy" target="_blank">プライバシーポリシー</a>および<a href="/terms" target="_blank">利用規約</a>に同意したものとみなします。送信データはFormspree（米国）経由で当団体に届きます。
             </p>
           </div>
         </form>
@@ -492,24 +482,6 @@ const FORMSPREE_ID = import.meta.env.FORMSPREE_ID ?? 'meevdpaj';
   .form-input::placeholder { color: #bbb; }
   .form-textarea { resize: vertical; min-height: 140px; line-height: 1.7; }
 
-  /* 同意 */
-  .consent-group { margin-bottom: 20px; }
-  .consent-label {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    cursor: pointer;
-    font-size: 13px;
-    color: #555;
-    line-height: 1.7;
-  }
-  .consent-label .checkbox-custom { margin-top: 2px; flex-shrink: 0; }
-  .consent-text a {
-    color: var(--purple);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
   /* 送信 */
   .form-submit { margin-top: 8px; }
   .submit-btn {
@@ -531,6 +503,18 @@ const FORMSPREE_ID = import.meta.env.FORMSPREE_ID ?? 'meevdpaj';
     color: #999;
     text-align: center;
     line-height: 1.8;
+  }
+  .form-consent-note {
+    margin-top: 12px;
+    font-size: 11px;
+    color: #bbb;
+    text-align: center;
+    line-height: 1.8;
+  }
+  .form-consent-note a {
+    color: #aaa;
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   /* 送信完了 */
@@ -592,12 +576,6 @@ const FORMSPREE_ID = import.meta.env.FORMSPREE_ID ?? 'meevdpaj';
       return;
     }
 
-    // 同意チェックボックス必須バリデーション
-    const consent = form.querySelector('#consent') as HTMLInputElement;
-    if (!consent?.checked) {
-      alert('プライバシーポリシーおよび利用規約への同意が必要です。');
-      return;
-    }
 
     btn.disabled = true;
     btn.textContent = '送信中...';
