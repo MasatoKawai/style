@@ -24,64 +24,127 @@ import Layout from '../layouts/Layout.astro';
       <div class="doc-body">
 
         <p class="doc-intro">
-          大学スタイル（以下「当団体」）は、ご利用者の個人情報保護を重要な責務と考え、以下のポリシーに基づいて適切に取り扱います。
+          任意団体 大学スタイル（以下「当団体」）は、個人情報の保護を重要な責務と認識し、個人情報の保護に関する法律（以下「個人情報保護法」）および関連法令を遵守しながら、以下のポリシーに基づいて個人情報を適切に取り扱います。
         </p>
 
-        <h2>1. 取得する個人情報</h2>
-        <p>当団体は、サービス提供にあたり以下の情報を取得することがあります。</p>
+        <h2>1. 事業者情報</h2>
+        <div class="info-table">
+          <div class="info-row"><dt>名称</dt><dd>任意団体 大学スタイル</dd></div>
+          <div class="info-row"><dt>代表者</dt><dd>河合雅斗</dd></div>
+          <div class="info-row"><dt>連絡先</dt><dd>info@strategy-and.art</dd></div>
+        </div>
+
+        <h2>2. 取得する個人情報と利用目的</h2>
+        <p>当団体は、以下の情報を取得し、それぞれの目的のために利用します。利用目的の範囲を超えて個人情報を利用する場合は、事前に本人の同意を得ます。</p>
+
+        <div class="purpose-block">
+          <h3>① お問い合わせフォーム</h3>
+          <p><strong>取得情報：</strong>会社名・団体名、担当者名、メールアドレス、電話番号（任意）、お問い合わせ内容、お問い合わせ区分</p>
+          <p><strong>利用目的：</strong>お問い合わせへの回答・ご連絡、サービス提案・見積もりの送付、過去のご連絡内容の管理</p>
+          <p><strong>保存期間：</strong>お問い合わせ対応完了後3年間</p>
+        </div>
+
+        <div class="purpose-block">
+          <h3>② 各種サービス利用時</h3>
+          <p><strong>取得情報：</strong>各サービスの申込フォームにご入力いただいた情報（団体名・担当者名・連絡先・サービス要件等）</p>
+          <p><strong>利用目的：</strong>サービスの提供・履行、契約管理、請求・支払い処理（有償サービスの場合）</p>
+          <p><strong>保存期間：</strong>取引終了後5年間（法令上の保存義務がある場合はその期間）</p>
+        </div>
+
+        <div class="purpose-block">
+          <h3>③ ウェブサイト閲覧時の自動収集情報</h3>
+          <p><strong>取得情報：</strong>IPアドレス、ブラウザの種類・バージョン、閲覧ページURL・遷移経路、滞在時間、Cookie識別子</p>
+          <p><strong>利用目的：</strong>サイトのアクセス解析・改善、不正アクセスの検知</p>
+          <p><strong>収集手段：</strong>Google Analytics（詳細は「5. 外部サービスへの情報送信（外部送信規律）」をご参照ください）</p>
+        </div>
+
+        <h2>3. 外国にある第三者への個人情報の提供（個人情報保護法第28条）</h2>
+        <p>当団体は、サービス提供のため以下の外国事業者に個人情報を提供しています。これらの提供先はいずれも日本の個人情報保護委員会が「十分な体制整備国」として指定していない国（米国）に所在するため、以下のとおりご説明します。</p>
+
+        <div class="transfer-block">
+          <h3>Formspree, Inc.（米国）</h3>
+          <p><strong>提供する情報：</strong>お問い合わせフォームにご入力いただいた全情報（会社名・担当者名・メールアドレス・電話番号・問い合わせ内容）</p>
+          <p><strong>提供の目的：</strong>フォームの送信・受信処理</p>
+          <p><strong>米国の個人情報保護制度：</strong>米国には日本の個人情報保護法に相当する統一的な連邦法はなく、州法（カリフォルニア州CCPAなど）および業界ごとの規制が存在します。Formspreeは EU-U.S. Data Privacy Framework（DPF）に準拠した対応をとっています。</p>
+          <p><strong>提供先の取扱い方針：</strong><a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Formspree Privacy Policy</a></p>
+          <p class="notice-box">⚠ お問い合わせフォームの送信は、上記の外国への個人情報提供に同意したものとみなします。同意いただけない場合は、メールにて直接お問い合わせください（info@strategy-and.art）。</p>
+        </div>
+
+        <div class="transfer-block">
+          <h3>Google LLC（米国）</h3>
+          <p><strong>提供する情報：</strong>Cookie識別子、IPアドレス（匿名化処理済み）、閲覧行動データ</p>
+          <p><strong>提供の目的：</strong>ウェブサイトのアクセス解析（Google Analytics）</p>
+          <p><strong>米国の個人情報保護制度：</strong>上記Formspreeと同様。Googleは EU-U.S. Data Privacy Framework（DPF）に参加しています。</p>
+          <p><strong>提供先の取扱い方針：</strong><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></p>
+        </div>
+
+        <div class="transfer-block">
+          <h3>Vercel, Inc.（米国）</h3>
+          <p><strong>提供する情報：</strong>ウェブサイトへのアクセスに伴い自動的に生成されるアクセスログ（IPアドレス、アクセス日時等）</p>
+          <p><strong>提供の目的：</strong>ウェブサイトのホスティング・配信</p>
+          <p><strong>提供先の取扱い方針：</strong><a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel Privacy Policy</a></p>
+        </div>
+
+        <h2>4. 第三者への提供（国内）</h2>
+        <p>当団体は、以下の場合を除き、取得した個人情報を第三者（国内）に提供しません。</p>
         <ul>
-          <li><strong>お問い合わせフォーム経由：</strong>会社名・団体名、担当者名、メールアドレス、電話番号（任意）、お問い合わせ内容</li>
-          <li><strong>各種サービス利用時：</strong>サービスの利用状況、入力フォームに記入いただいた情報</li>
-          <li><strong>自動収集：</strong>アクセスログ、Cookieを通じた利用状況（Google Analytics等）</li>
+          <li>ご本人の事前の同意がある場合</li>
+          <li>法令に基づき開示が義務付けられる場合</li>
+          <li>人の生命、身体または財産の保護のために必要がある場合であって、本人の同意を得ることが困難であるとき</li>
+          <li>公衆衛生の向上または児童の健全な育成の推進のために特に必要がある場合であって、本人の同意を得ることが困難であるとき</li>
+          <li>国の機関・地方公共団体等が法令の定める事務を遂行する場合</li>
         </ul>
 
-        <h2>2. 利用目的</h2>
-        <p>取得した個人情報は、以下の目的のために利用します。</p>
+        <h2>5. 外部サービスへの情報送信（外部送信規律・電気通信事業法第27条の12）</h2>
+        <p>当団体のウェブサイトは、以下の外部サービスにユーザー情報を送信しています。</p>
+
+        <div class="external-table">
+          <div class="external-header">
+            <span>サービス名</span>
+            <span>送信する情報</span>
+            <span>利用目的</span>
+          </div>
+          <div class="external-row">
+            <span><strong>Google Analytics</strong><br>（Google LLC）</span>
+            <span>Cookie識別子、閲覧ページURL、参照元URL、IPアドレス（匿名化）、ブラウザ情報、デバイス情報、滞在時間</span>
+            <span>ウェブサイトのアクセス解析・利用状況の把握・サイト改善</span>
+          </div>
+        </div>
+
+        <p>Google Analyticsのデータ収集を無効にしたい場合は、<a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google アナリティクス オプトアウト アドオン</a>をご利用ください。</p>
+
+        <h2>6. Cookieについて</h2>
+        <p>本ウェブサイトでは、利用状況の分析のためCookieを使用しています。ブラウザの設定によりCookieを無効化できますが、一部機能が利用できなくなる場合があります。</p>
+
+        <h2>7. 安全管理措置</h2>
+        <p>当団体は、保有する個人情報の漏洩・滅失・毀損を防止するため、以下の措置を講じます。</p>
         <ul>
-          <li>お問い合わせへの回答・ご連絡</li>
-          <li>サービスの提供・改善・開発</li>
-          <li>重要なお知らせの送付</li>
-          <li>統計・分析（個人を特定しない形式で実施）</li>
+          <li><strong>組織的措置：</strong>個人情報の取扱いルールを定め、メンバーへの周知を徹底する</li>
+          <li><strong>技術的措置：</strong>SSL/TLS暗号化通信の採用、アクセス権限の管理</li>
+          <li><strong>人的措置：</strong>個人情報を取り扱うメンバーへの教育・指導</li>
         </ul>
 
-        <h2>3. 第三者への提供</h2>
-        <p>当団体は、以下の場合を除き、取得した個人情報を第三者に提供しません。</p>
+        <h2>8. 開示・訂正・利用停止等のご請求</h2>
+        <p>ご自身の個人情報について、以下のご請求をいただくことができます。</p>
         <ul>
-          <li>ご本人の同意がある場合</li>
-          <li>法令に基づき開示が必要な場合</li>
-          <li>人の生命・財産保護のために必要な場合</li>
+          <li>保有個人データの開示（電磁的記録による提供を含む）</li>
+          <li>内容の訂正・追加・削除</li>
+          <li>利用の停止・消去</li>
+          <li>第三者への提供の停止</li>
         </ul>
-
-        <h2>4. 業務委託先への開示</h2>
-        <p>サービス提供のため、以下の外部サービスを利用しています。これらのサービスはそれぞれの利用規約・プライバシーポリシーに従い個人情報を取り扱います。</p>
-        <ul>
-          <li><strong>Formspree：</strong>お問い合わせフォームの送信処理（米国）</li>
-          <li><strong>Google Analytics：</strong>サイト利用状況の分析（米国）</li>
-          <li><strong>Vercel：</strong>ウェブサイトのホスティング（米国）</li>
-        </ul>
-
-        <h2>5. Cookie（クッキー）について</h2>
-        <p>本サービスでは、利便性向上および利用状況分析のためCookieを使用することがあります。ブラウザの設定によりCookieを無効化することができますが、一部機能が利用できなくなる場合があります。</p>
-
-        <h2>6. 個人情報の管理・保管</h2>
-        <p>当団体は、取得した個人情報を不正アクセス・漏洩・紛失・改ざんから保護するために適切な管理措置を講じます。利用目的に照らして不要となった個人情報は、速やかに削除または破棄します。</p>
-
-        <h2>7. 開示・訂正・削除のご請求</h2>
-        <p>ご自身の個人情報の開示・訂正・削除をご希望の場合は、下記お問い合わせ先までご連絡ください。本人確認のうえ、合理的な期間内に対応いたします。</p>
-
-        <h2>8. 未成年者について</h2>
-        <p>本サービスは大学生・大学サークル・企業様を主な対象としています。未成年者がご利用になる場合は、保護者の同意を得たうえでご利用ください。</p>
+        <p>ご請求の際は、下記お問い合わせ先にメールにてご連絡ください。ご本人確認（氏名・連絡先・ご請求内容）の後、原則として2週間以内に対応します。法令上の例外事由がある場合はその旨をご説明します。なお、請求にかかる手数料は現時点では無料です。</p>
 
         <h2>9. ポリシーの変更</h2>
-        <p>当団体は、必要に応じて本ポリシーを変更することがあります。変更後のポリシーは本ページに掲載した時点で効力を生じます。重要な変更がある場合は、ウェブサイト上でお知らせします。</p>
+        <p>当団体は、法令の改正やサービス内容の変更にともない、本ポリシーを変更することがあります。重要な変更を行う場合は、変更内容および効力発生日をウェブサイト上に掲示し、効力発生日の少なくとも2週間前までにお知らせします。軽微な変更（誤字修正・参照先URLの変更等）については即時変更することがあります。</p>
 
-        <h2>10. お問い合わせ</h2>
-        <p>個人情報の取り扱いに関するお問い合わせは、下記までご連絡ください。</p>
+        <h2>10. お問い合わせ・苦情窓口</h2>
+        <p>個人情報の取り扱いに関するご質問・苦情・ご相談は、下記の個人情報相談窓口にご連絡ください。</p>
         <div class="contact-box">
-          <p><strong>大学スタイル 個人情報相談窓口</strong></p>
+          <p><strong>任意団体 大学スタイル 個人情報相談窓口</strong></p>
           <p>メール：info@strategy-and.art</p>
           <p class="contact-note">平日10:00〜18:00（返信まで2〜3営業日いただく場合があります）</p>
         </div>
+        <p style="margin-top: 16px;">当団体の対応にご不満がある場合は、個人情報保護委員会（<a href="https://www.ppc.go.jp/" target="_blank" rel="noopener noreferrer">https://www.ppc.go.jp/</a>）にご相談いただくことも可能です。</p>
 
       </div>
     </div>
@@ -139,11 +202,24 @@ import Layout from '../layouts/Layout.astro';
     border-bottom: 1px solid rgba(0,0,0,0.08);
   }
 
+  .doc-body h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+  }
+
   .doc-body p {
     font-size: 14px;
     color: #555;
     line-height: 2;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
+  }
+
+  .doc-body a {
+    color: var(--purple);
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   .doc-body ul {
@@ -156,7 +232,7 @@ import Layout from '../layouts/Layout.astro';
     font-size: 14px;
     color: #555;
     line-height: 1.8;
-    padding: 8px 0 8px 20px;
+    padding: 7px 0 7px 20px;
     position: relative;
     border-bottom: 1px solid rgba(0,0,0,0.04);
   }
@@ -168,8 +244,107 @@ import Layout from '../layouts/Layout.astro';
     color: #bbb;
   }
 
-  .doc-body ul li strong {
+  .doc-body ul li strong { color: var(--text-dark); }
+
+  .info-table {
+    background: #f7f7f9;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+
+  .info-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .info-row:last-child { border-bottom: none; }
+
+  .info-row dt {
+    font-size: 12px;
+    font-weight: 700;
+    color: #888;
+    padding: 12px 16px;
+    background: rgba(0,0,0,0.03);
+  }
+
+  .info-row dd {
+    font-size: 14px;
     color: var(--text-dark);
+    padding: 12px 16px;
+  }
+
+  .purpose-block, .transfer-block {
+    background: #f7f7f9;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+
+  .purpose-block h3, .transfer-block h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--purple);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(74,40,180,0.1);
+  }
+
+  .purpose-block p, .transfer-block p {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.9;
+    margin-bottom: 8px;
+  }
+
+  .purpose-block p strong, .transfer-block p strong {
+    color: var(--text-dark);
+  }
+
+  .notice-box {
+    background: rgba(255,180,0,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px !important;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px !important;
+    color: #664 !important;
+    margin-top: 12px !important;
+  }
+
+  .external-table {
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    font-size: 13px;
+  }
+
+  .external-header {
+    display: grid;
+    grid-template-columns: 140px 1fr 1fr;
+    background: rgba(0,0,0,0.04);
+    font-weight: 700;
+    color: #666;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .external-header span, .external-row span {
+    padding: 10px 14px;
+    border-right: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .external-header span:last-child, .external-row span:last-child {
+    border-right: none;
+  }
+
+  .external-row {
+    display: grid;
+    grid-template-columns: 140px 1fr 1fr;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    color: #555;
+    line-height: 1.7;
   }
 
   .contact-box {
@@ -185,13 +360,22 @@ import Layout from '../layouts/Layout.astro';
     color: #555;
   }
 
-  .contact-box strong {
-    color: var(--text-dark);
-  }
+  .contact-box strong { color: var(--text-dark); }
 
   .contact-note {
     font-size: 12px !important;
     color: #999 !important;
     margin-top: 8px !important;
+  }
+
+  @media (max-width: 600px) {
+    .external-header, .external-row {
+      grid-template-columns: 1fr;
+    }
+    .external-header span, .external-row span {
+      border-right: none;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .info-row { grid-template-columns: 80px 1fr; }
   }
 </style>
