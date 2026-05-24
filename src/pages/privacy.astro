@@ -1,0 +1,197 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="プライバシーポリシー | 大学スタイル"
+  description="大学スタイルのプライバシーポリシー。個人情報の取り扱いについてご説明します。"
+>
+
+  <section class="page-hero">
+    <div class="film-strip"></div>
+    <div class="container page-hero-inner">
+      <p class="section-label">Legal</p>
+      <h1 class="page-hero-title">プライバシーポリシー</h1>
+      <p class="page-hero-sub">Privacy Policy</p>
+    </div>
+    <div class="film-strip film-strip--bottom"></div>
+  </section>
+
+  <section class="section section--light">
+    <div class="container--narrow">
+      <p class="doc-updated">最終更新日：2026年5月24日</p>
+
+      <div class="doc-body">
+
+        <p class="doc-intro">
+          大学スタイル（以下「当団体」）は、ご利用者の個人情報保護を重要な責務と考え、以下のポリシーに基づいて適切に取り扱います。
+        </p>
+
+        <h2>1. 取得する個人情報</h2>
+        <p>当団体は、サービス提供にあたり以下の情報を取得することがあります。</p>
+        <ul>
+          <li><strong>お問い合わせフォーム経由：</strong>会社名・団体名、担当者名、メールアドレス、電話番号（任意）、お問い合わせ内容</li>
+          <li><strong>各種サービス利用時：</strong>サービスの利用状況、入力フォームに記入いただいた情報</li>
+          <li><strong>自動収集：</strong>アクセスログ、Cookieを通じた利用状況（Google Analytics等）</li>
+        </ul>
+
+        <h2>2. 利用目的</h2>
+        <p>取得した個人情報は、以下の目的のために利用します。</p>
+        <ul>
+          <li>お問い合わせへの回答・ご連絡</li>
+          <li>サービスの提供・改善・開発</li>
+          <li>重要なお知らせの送付</li>
+          <li>統計・分析（個人を特定しない形式で実施）</li>
+        </ul>
+
+        <h2>3. 第三者への提供</h2>
+        <p>当団体は、以下の場合を除き、取得した個人情報を第三者に提供しません。</p>
+        <ul>
+          <li>ご本人の同意がある場合</li>
+          <li>法令に基づき開示が必要な場合</li>
+          <li>人の生命・財産保護のために必要な場合</li>
+        </ul>
+
+        <h2>4. 業務委託先への開示</h2>
+        <p>サービス提供のため、以下の外部サービスを利用しています。これらのサービスはそれぞれの利用規約・プライバシーポリシーに従い個人情報を取り扱います。</p>
+        <ul>
+          <li><strong>Formspree：</strong>お問い合わせフォームの送信処理（米国）</li>
+          <li><strong>Google Analytics：</strong>サイト利用状況の分析（米国）</li>
+          <li><strong>Vercel：</strong>ウェブサイトのホスティング（米国）</li>
+        </ul>
+
+        <h2>5. Cookie（クッキー）について</h2>
+        <p>本サービスでは、利便性向上および利用状況分析のためCookieを使用することがあります。ブラウザの設定によりCookieを無効化することができますが、一部機能が利用できなくなる場合があります。</p>
+
+        <h2>6. 個人情報の管理・保管</h2>
+        <p>当団体は、取得した個人情報を不正アクセス・漏洩・紛失・改ざんから保護するために適切な管理措置を講じます。利用目的に照らして不要となった個人情報は、速やかに削除または破棄します。</p>
+
+        <h2>7. 開示・訂正・削除のご請求</h2>
+        <p>ご自身の個人情報の開示・訂正・削除をご希望の場合は、下記お問い合わせ先までご連絡ください。本人確認のうえ、合理的な期間内に対応いたします。</p>
+
+        <h2>8. 未成年者について</h2>
+        <p>本サービスは大学生・大学サークル・企業様を主な対象としています。未成年者がご利用になる場合は、保護者の同意を得たうえでご利用ください。</p>
+
+        <h2>9. ポリシーの変更</h2>
+        <p>当団体は、必要に応じて本ポリシーを変更することがあります。変更後のポリシーは本ページに掲載した時点で効力を生じます。重要な変更がある場合は、ウェブサイト上でお知らせします。</p>
+
+        <h2>10. お問い合わせ</h2>
+        <p>個人情報の取り扱いに関するお問い合わせは、下記までご連絡ください。</p>
+        <div class="contact-box">
+          <p><strong>大学スタイル 個人情報相談窓口</strong></p>
+          <p>メール：info@strategy-and.art</p>
+          <p class="contact-note">平日10:00〜18:00（返信まで2〜3営業日いただく場合があります）</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 160px 0 80px;
+    background: linear-gradient(150deg, #0a0a0a 0%, #110820 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .film-strip--bottom { position: absolute; bottom: 0; left: 0; right: 0; }
+  .page-hero-inner { position: relative; z-index: 1; }
+  .page-hero-title {
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .page-hero-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .doc-updated {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .doc-intro {
+    font-size: 15px;
+    color: #444;
+    line-height: 2;
+    margin-bottom: 48px;
+    padding: 24px 28px;
+    background: rgba(74,40,180,0.04);
+    border-left: 3px solid var(--purple);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .doc-body h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 40px 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .doc-body p {
+    font-size: 14px;
+    color: #555;
+    line-height: 2;
+    margin-bottom: 14px;
+  }
+
+  .doc-body ul {
+    margin: 8px 0 16px 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .doc-body ul li {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.8;
+    padding: 8px 0 8px 20px;
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .doc-body ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: #bbb;
+  }
+
+  .doc-body ul li strong {
+    color: var(--text-dark);
+  }
+
+  .contact-box {
+    background: #f7f7f9;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-top: 8px;
+  }
+
+  .contact-box p {
+    margin-bottom: 4px;
+    font-size: 14px;
+    color: #555;
+  }
+
+  .contact-box strong {
+    color: var(--text-dark);
+  }
+
+  .contact-note {
+    font-size: 12px !important;
+    color: #999 !important;
+    margin-top: 8px !important;
+  }
+</style>
