@@ -19,7 +19,7 @@ import Layout from '../layouts/Layout.astro';
 
   <section class="section section--light">
     <div class="container--narrow">
-      <p class="doc-updated">最終更新日：2026年5月24日</p>
+      <p class="doc-updated">最終更新日：2026年5月31日</p>
 
       <div class="doc-body">
 
@@ -58,6 +58,14 @@ import Layout from '../layouts/Layout.astro';
           <p><strong>収集手段：</strong>Google Analytics（詳細は「5. 外部サービスへの情報送信（外部送信規律）」をご参照ください）</p>
         </div>
 
+        <div class="purpose-block">
+          <h3>④ LINEサービス（大学スタイル公式LINE）利用時</h3>
+          <p><strong>取得情報：</strong>LINEユーザーID、LINE表示名、メッセージ送受信内容（ご登録・お問い合わせ内容）、サービス利用記録（イベントリマインド設定・配信履歴等）</p>
+          <p><strong>利用目的：</strong>イベント・インターン等のリマインド通知の配信、ユーザーへのサービス情報提供、サービス品質の改善、登録情報の管理</p>
+          <p><strong>保存期間：</strong>サービス退会または当団体によるサービス終了後1年間</p>
+          <p><strong>備考：</strong>LINEサービス上のメッセージ送受信はLINE株式会社のシステムを経由します。LINE株式会社の個人情報の取扱いについては<a href="https://line.me/ja/terms/policy/" target="_blank" rel="noopener noreferrer">LINEプライバシーポリシー</a>をご参照ください。</p>
+        </div>
+
         <h2>3. 外国にある第三者への個人情報の提供（個人情報保護法第28条）</h2>
         <p>当団体は、サービス提供のため以下の外国事業者に個人情報を提供しています。これらの提供先はいずれも日本の個人情報保護委員会が「十分な体制整備国」として指定していない国（米国）に所在するため、以下のとおりご説明します。</p>
 
@@ -83,6 +91,15 @@ import Layout from '../layouts/Layout.astro';
           <p><strong>提供する情報：</strong>ウェブサイトへのアクセスに伴い自動的に生成されるアクセスログ（IPアドレス、アクセス日時等）</p>
           <p><strong>提供の目的：</strong>ウェブサイトのホスティング・配信</p>
           <p><strong>提供先の取扱い方針：</strong><a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel Privacy Policy</a></p>
+        </div>
+
+        <div class="transfer-block">
+          <h3>Supabase, Inc.（米国）</h3>
+          <p><strong>提供する情報：</strong>LINEサービスを通じて取得したLINEユーザーID、LINE表示名、サービス利用記録（イベントリマインド設定・配信履歴等）</p>
+          <p><strong>提供の目的：</strong>LINEサービスのデータベース管理・バックエンド処理</p>
+          <p><strong>米国の個人情報保護制度：</strong>米国には日本の個人情報保護法に相当する統一的な連邦法はなく、州法および業界ごとの規制が存在します。Supabaseは SOC 2 Type II 認証を取得し、適切なセキュリティ体制を整備しています。</p>
+          <p><strong>提供先の取扱い方針：</strong><a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Supabase Privacy Policy</a></p>
+          <p class="notice-box">⚠ 当団体は、データ保護とレイテンシ改善を目的として、Supabaseのデータ保存先を日本リージョンへ移行することを予定しています。移行完了後は、本条の対象から除外される予定です。</p>
         </div>
 
         <h2>4. 第三者への提供（国内）</h2>

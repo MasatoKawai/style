@@ -230,6 +230,25 @@ const FORMSPREE_ID = import.meta.env.FORMSPREE_ID ?? 'meevdpaj';
             ></textarea>
           </div>
 
+          <!-- 外国第三者提供 同意チェックボックス（個人情報保護法第28条） -->
+          <div class="form-group consent-group">
+            <label class="checkbox-label consent-checkbox-label">
+              <input
+                type="checkbox"
+                name="外国第三者提供同意"
+                id="foreign-consent"
+                value="同意する"
+                required
+              />
+              <span class="checkbox-custom"></span>
+              <span class="consent-text">
+                入力内容が米国に所在するFormspree, Inc.のサーバーを経由して当団体に届くことに同意します。
+                （<a href="/privacy#foreign-transfer" target="_blank">外国第三者提供について</a>）
+                <span class="required">必須</span>
+              </span>
+            </label>
+          </div>
+
           <!-- 送信ボタン -->
           <div class="form-submit">
             <button type="submit" class="btn btn--gold submit-btn" id="submit-btn">
@@ -239,7 +258,7 @@ const FORMSPREE_ID = import.meta.env.FORMSPREE_ID ?? 'meevdpaj';
               送信後、担当者より2〜3営業日以内にご連絡いたします。
             </p>
             <p class="form-consent-note">
-              「送信する」をクリックすることで、<a href="/privacy" target="_blank">プライバシーポリシー</a>および<a href="/terms" target="_blank">利用規約</a>に同意したものとみなします。送信データはFormspree（米国）経由で当団体に届きます。
+              「送信する」をクリックすることで、<a href="/privacy" target="_blank">プライバシーポリシー</a>および<a href="/terms" target="_blank">利用規約</a>に同意したものとみなします。
             </p>
           </div>
         </form>
@@ -481,6 +500,36 @@ const FORMSPREE_ID = import.meta.env.FORMSPREE_ID ?? 'meevdpaj';
   }
   .form-input::placeholder { color: #bbb; }
   .form-textarea { resize: vertical; min-height: 140px; line-height: 1.7; }
+
+  /* 外国提供同意チェックボックス */
+  .consent-group {
+    background: rgba(255,180,0,0.04);
+    border: 1px solid rgba(255,180,0,0.3);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+  }
+  .consent-checkbox-label {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    align-items: flex-start !important;
+    cursor: pointer;
+  }
+  .consent-text {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.7;
+  }
+  .consent-text a {
+    color: var(--purple);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .consent-text .required {
+    display: inline-block;
+    margin-left: 6px;
+  }
 
   /* 送信 */
   .form-submit { margin-top: 8px; }
