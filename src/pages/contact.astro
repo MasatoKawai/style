@@ -1,11 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ObfuscatedEmail from '../components/ObfuscatedEmail.astro';
-
-// ★ FormspreeのForm IDをここに設定してください
-// 1. https://formspree.io/ でGitHubログイン
-// 2. New Form → 受信先メールを入力 → Form ID をコピー（例: xpzgkwqr）
-const FORMSPREE_ID = import.meta.env.FORMSPREE_ID ?? 'meevdpaj';
 ---
 
 <Layout
@@ -87,7 +82,7 @@ const FORMSPREE_ID = import.meta.env.FORMSPREE_ID ?? 'meevdpaj';
       <div class="form-wrap">
         <form
           id="contact-form"
-          action={`https://formspree.io/f/${FORMSPREE_ID}`}
+          action="/api/contact"
           method="POST"
           novalidate
         >
@@ -228,25 +223,6 @@ const FORMSPREE_ID = import.meta.env.FORMSPREE_ID ?? 'meevdpaj';
               placeholder="ご質問・ご要望などをご自由にお書きください"
               rows="6"
             ></textarea>
-          </div>
-
-          <!-- 外国第三者提供 同意チェックボックス（個人情報保護法第28条） -->
-          <div class="form-group consent-group">
-            <label class="checkbox-label consent-checkbox-label">
-              <input
-                type="checkbox"
-                name="外国第三者提供同意"
-                id="foreign-consent"
-                value="同意する"
-                required
-              />
-              <span class="checkbox-custom"></span>
-              <span class="consent-text">
-                入力内容が米国に所在するFormspree, Inc.のサーバーを経由して当団体に届くことに同意します。
-                （<a href="/privacy#foreign-transfer" target="_blank">外国第三者提供について</a>）
-                <span class="required">必須</span>
-              </span>
-            </label>
           </div>
 
           <!-- 送信ボタン -->
