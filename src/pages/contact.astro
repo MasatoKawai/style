@@ -616,7 +616,7 @@ import Layout from '../layouts/Layout.astro';
         throw new Error('送信に失敗しました');
       }
     } catch {
-      alert('送信中にエラーが発生しました。お手数ですがメールでお問い合わせください。');
+      alert('送信中にエラーが発生しました。時間をおいて再度お試しください。');
       btn.disabled = false;
       btn.textContent = '送信する';
     }
