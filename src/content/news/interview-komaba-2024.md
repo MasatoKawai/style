@@ -4,6 +4,7 @@ date: "2024-11-22"
 category: "学祭"
 excerpt: "運営する「学祭メディア」において、駒場祭委員会のメンバーへインタビューを実施しました。"
 externalUrl: "https://note.com/gaku_sai"
+coverImage: "https://assets.st-note.com/production/uploads/images/163048067/rectangle_large_type_2_64472fc7cad928e7a043b81874093dd0.png?width=1280"
 ---
 
 運営する「学祭メディア」において、東京大学で開催される駒場祭の委員会メンバーへインタビューを行いました。
