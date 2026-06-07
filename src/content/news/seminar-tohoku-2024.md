@@ -3,7 +3,6 @@ title: "東北大学の学部生向け就活講座を行いました"
 date: "2024-08-09"
 category: "就活"
 excerpt: "東北大学の学部生15名を対象に、「今、知っておくべきこと。今、できること。」をテーマとした就活講座を実施しました。"
-coverImage: "https://strategy-and.art/wp-content/uploads/2024/11/screenshot-3-724x1024.png"
 ---
 
 東北大学の学部生15名を対象に、就職活動をテーマとした講座を開催しました。
@@ -18,8 +17,6 @@ coverImage: "https://strategy-and.art/wp-content/uploads/2024/11/screenshot-3-72
 ## 内容
 
 就職活動の全体像や、早期から取り組むべきことについて解説しました。情報の非対称性が生む機会格差をなくすという私たちのMissionのもと、学生が「知らなかった」で損をしないための実践的な知識を共有しました。
-
-![講座の様子](https://strategy-and.art/wp-content/uploads/2024/11/screenshot-3-724x1024.png)
 
 ## 参加者の声
 

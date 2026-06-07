@@ -4,12 +4,10 @@ date: "2024-11-25"
 category: "学祭"
 excerpt: "2023年・2024年の大学祭開催データを月別に分析。秋季（10〜11月）への集中が鮮明になりました。"
 externalUrl: "https://note.com/gaku_sai"
-coverImage: "https://strategy-and.art/wp-content/uploads/2024/11/note-top-1024x536.png"
+coverImage: "https://assets.st-note.com/production/uploads/images/163070425/rectangle_large_type_2_56184d6a261b9650b81eec5898b0324c.png"
 ---
 
 2023年・2024年の大学祭開催データを月別に集計・比較分析した調査レポートです。
-
-![調査サマリー](https://strategy-and.art/wp-content/uploads/2024/11/note-top-1024x536.png)
 
 ## 主な発見
 
@@ -20,8 +18,6 @@ coverImage: "https://strategy-and.art/wp-content/uploads/2024/11/note-top-1024x5
 **初夏〜夏季（5〜8月）**: 5月・6月に開催が急増し、その後減少。
 
 **秋季（9〜11月）**: 大学祭が最も集中する時期。特に10月・11月で圧倒的な開催数を記録。
-
-![月別実施数グラフ](https://strategy-and.art/wp-content/uploads/2024/11/image-1024x630.png)
 
 ### 2024年の変化
 

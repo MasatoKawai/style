@@ -3,7 +3,6 @@ title: "北海道大学デジタル新歓パンフレットについて"
 date: "2024-05-31"
 category: "新歓"
 excerpt: "40のサークル・部活が参加。公式LINEで600名の新入生に活用されたデジタル新歓パンフレット、初年度の取り組みをご報告します。"
-coverImage: "https://strategy-and.art/wp-content/uploads/2024/05/screenshot-1024x575.png"
 ---
 
 2024年春、北海道大学の新入生向けにデジタル新歓パンフレットを初めて提供しました。
@@ -12,16 +11,12 @@ coverImage: "https://strategy-and.art/wp-content/uploads/2024/05/screenshot-1024
 
 サークル・部活動の情報をデジタルで一元化し、新入生がスマートフォンからいつでもアクセスできる新歓プラットフォームを構築・運営しました。
 
-![デジタル新歓 LINEリッチメニュー](https://strategy-and.art/wp-content/uploads/2024/11/screenshot-230-1024x692.png)
-
 ## 実績
 
 - **参加団体数**: 40団体（サークル・部活動）
 - **新入生利用数**: 600名
 - **配信手段**: 公式LINE
 - **コンテンツ**: 日替わりコンテンツを配信
-
-![プラットフォーム画面](https://strategy-and.art/wp-content/uploads/2024/05/screenshot-1024x575.png)
 
 ## サービス内容
 
