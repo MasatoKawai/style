@@ -1,6 +1,6 @@
 // 学祭カレンダーデータ
 // ベース：ナレッジステーション (https://www.gakkou.net/daigaku/gakuensai/) + 各公式サイト
-// 更新日：2026年5月24日（Company/style/festivals/materials/ 参照）
+// 更新日：2026年6月14日（Company/style/festivals/materials/ 参照）
 
 export interface Festival {
   university: string;
@@ -63,6 +63,17 @@ export const festivals: Festival[] = [
     reach: "約5,000人", studentCount: "約1万人",
     venue: "戸塚キャンパス",
   },
+  {
+    university: "大阪公立大学", festivalName: "友好祭", prefecture: "大阪", month: 5,
+    slug: "omu-yukousai",
+    dateText: "5月23日〜24日", startDate: "2026-05-23", endDate: "2026-05-24",
+    url: "https://yuukousai.jp/",
+    sponsorStatus: "unknown", studentCount: "約1.2万人",
+    venue: "中百舌鳥キャンパス", history: "第65回",
+    description: "大阪公立大学中百舌鳥キャンパスで毎年5月に開催される春の大学祭。2022年に大阪市立大学と大阪府立大学が統合して誕生した大学の祭典として、ライブ・模擬店・フリーマーケットなど多彩な企画が2日間にわたって展開される。",
+    instagramUrl: "https://www.instagram.com/ginnan_staff/",
+    xUrl: "https://x.com/yuukousai",
+  },
 
   // ===== 6月 =====
   {
@@ -121,9 +132,25 @@ export const festivals: Festival[] = [
   },
   { university: "学習院大学", festivalName: "常磐祭", prefecture: "東京", month: 10, slug: "gakushuin-tokiwa", dateText: "10月下旬（予定）", sponsorStatus: "unknown" },
   { university: "東京学芸大学", festivalName: "小金井祭", prefecture: "東京", month: 10, slug: "gakugei-koganei", dateText: "10月下旬〜11月上旬（予定）", sponsorStatus: "unknown" },
-  { university: "上智大学", festivalName: "ソフィア祭", prefecture: "東京", month: 10, slug: "sophia", dateText: "10月下旬（予定）", sponsorStatus: "unknown" },
+  {
+    university: "上智大学", festivalName: "ソフィア祭", prefecture: "東京", month: 10,
+    slug: "sophia",
+    dateText: "10月下旬（予定）",
+    url: "https://www.sopfes.com/",
+    sponsorStatus: "unknown", studentCount: "約1.2万人",
+    venue: "四谷キャンパス",
+    instagramUrl: "https://www.instagram.com/sophia_festival/",
+    xUrl: "https://x.com/sophiafestival",
+  },
   { university: "東京工業大学", festivalName: "工大祭", prefecture: "東京", month: 10, slug: "titech", dateText: "10月中旬（予定）", sponsorStatus: "unknown" },
-  { university: "横浜国立大学", festivalName: "常盤祭", prefecture: "神奈川", month: 10, slug: "yokonoku-tokiwa", dateText: "10月下旬（予定）", sponsorStatus: "unknown" },
+  {
+    university: "横浜国立大学", festivalName: "常盤祭", prefecture: "神奈川", month: 10,
+    slug: "yokonoku-tokiwa",
+    dateText: "10月下旬（予定）",
+    sponsorStatus: "unknown", studentCount: "約7,300人",
+    venue: "常盤台キャンパス",
+    instagramUrl: "https://www.instagram.com/ynu_fes/",
+  },
   { university: "神戸大学", festivalName: "神大祭", prefecture: "兵庫", month: 10, slug: "kobe", dateText: "10月下旬（予定）", sponsorStatus: "unknown" },
   { university: "関西学院大学", festivalName: "関学祭", prefecture: "兵庫", month: 10, slug: "kwansei", dateText: "10月下旬（予定）", sponsorStatus: "unknown" },
   { university: "北海道大学", festivalName: "エルムの森", prefecture: "北海道", month: 10, slug: "hokudai-elm", dateText: "10月中旬（予定）", sponsorStatus: "unknown" },
@@ -167,6 +194,26 @@ export const festivals: Festival[] = [
     instagramUrl: "https://www.instagram.com/nodai_harvest/",
     xUrl: "https://x.com/nodai_harvest",
   },
+  {
+    university: "東北学院大学", festivalName: "TGUFES（五橋祭・六軒丁祭）", prefecture: "宮城", month: 10,
+    slug: "tgu-fes",
+    dateText: "10月中旬（予定）",
+    sponsorStatus: "unknown", studentCount: "約1.1万人",
+    venue: "土樋・五橋キャンパス",
+    description: "東北学院大学の土樋キャンパス・五橋キャンパスで毎年10月に開催される学園祭。五橋祭と六軒丁祭の2キャンパス同時開催で、ステージイベントや模擬店など各キャンパスの個性あるプログラムが楽しめる。",
+    instagramUrl: "https://www.instagram.com/tgufes/",
+    xUrl: "https://x.com/TGUFES",
+  },
+  {
+    university: "神戸学院大学", festivalName: "135Festival", prefecture: "兵庫", month: 10,
+    slug: "kgu-135",
+    dateText: "10月31日〜11月3日", startDate: "2026-10-31", endDate: "2026-11-03",
+    sponsorStatus: "unknown", studentCount: "約1.1万人",
+    venue: "ポートアイランドキャンパス", history: "第59回",
+    description: "神戸学院大学ポートアイランドキャンパスで毎年10月末〜11月初旬に4日間開催される大学祭。海に面したキャンパスを活かしたイベントで、アーティストライブ・模擬店・企画展示など多彩なプログラムが展開される。",
+    instagramUrl: "https://www.instagram.com/135festival/",
+    xUrl: "https://x.com/135fes",
+  },
 
   // ===== 11月 =====
   {
@@ -197,7 +244,16 @@ export const festivals: Festival[] = [
     description: "東京大学教養学部（1・2年生）が主体となって駒場キャンパスで開催する文化祭。学術的な展示・研究発表から演劇・音楽まで幅広いプログラムが揃う。",
     highlights: ["前期課程学生が企画・運営", "学術展示・研究発表", "ミスコン・ライブ等エンタメ企画"],
   },
-  { university: "明治大学", festivalName: "明大祭", prefecture: "東京", month: 11, slug: "meiji", dateText: "11月中旬（予定）", sponsorStatus: "unknown" },
+  {
+    university: "明治大学", festivalName: "明大祭", prefecture: "東京", month: 11,
+    slug: "meiji",
+    dateText: "10月30日〜11月1日", startDate: "2026-10-30", endDate: "2026-11-01",
+    url: "https://www.meidaisai.jp/",
+    sponsorStatus: "unknown", reach: "約4.3万人", studentCount: "約3.3万人",
+    venue: "和泉キャンパス", history: "第142回",
+    description: "明治大学和泉キャンパスで毎年10月末〜11月初旬に3日間開催される学園祭。200以上の団体が参加し、著名人ゲストや大型ライブステージ・模擬店など多彩なプログラムが展開される人気学祭。",
+    highlights: ["200以上の団体が参加", "著名人・アーティストゲスト", "和泉通り沿いの模擬店"],
+  },
   { university: "中央大学", festivalName: "白門祭（茗荷谷）", prefecture: "東京", month: 11, slug: "chuo-hakumon", dateText: "11月上旬（予定）", sponsorStatus: "unknown" },
   { university: "法政大学", festivalName: "法政大学学園祭", prefecture: "東京", month: 11, slug: "hosei", dateText: "11月上旬（予定）", sponsorStatus: "unknown" },
   { university: "津田塾大学", festivalName: "津田ヶ谷祭", prefecture: "東京", month: 11, slug: "tsuda", dateText: "11月中旬（予定）", sponsorStatus: "unknown" },
@@ -331,6 +387,24 @@ export const festivals: Festival[] = [
     sponsorStatus: "unknown", studentCount: "約1.2万人",
     venue: "世田谷キャンパス",
     instagramUrl: "https://www.instagram.com/fumon_fes/",
+  },
+  {
+    university: "大東文化大学", festivalName: "大東祭", prefecture: "東京", month: 11,
+    slug: "daito-sai",
+    dateText: "11月1日〜2日", startDate: "2026-11-01", endDate: "2026-11-02",
+    url: "https://daitosai.com/",
+    sponsorStatus: "unknown", studentCount: "約1.2万人",
+    venue: "板橋キャンパス",
+    description: "大東文化大学板橋キャンパスで毎年11月に開催される学園祭。学生主体のステージイベント・企画展示・模擬店が2日間にわたって展開される。",
+  },
+  {
+    university: "愛知学院大学", festivalName: "MKC愛学祭", prefecture: "愛知", month: 11,
+    slug: "agu-mkc",
+    dateText: "11月22日", startDate: "2026-11-22", endDate: "2026-11-22",
+    sponsorStatus: "unknown", studentCount: "約1.1万人",
+    venue: "名城公園キャンパス", history: "第13回",
+    description: "愛知学院大学名城公園キャンパスで毎年11月に開催される学部単位の大学祭。模擬店・ステージ企画など学生主体のプログラムが1日にわたって展開される。",
+    instagramUrl: "https://www.instagram.com/agufes_mkc/",
   },
 ];
 
