@@ -1,6 +1,6 @@
 // 学祭カレンダーデータ
 // ベース：ナレッジステーション (https://www.gakkou.net/daigaku/gakuensai/) + 各公式サイト
-// 更新日：2026年6月14日（Company/style/festivals/materials/ 参照）
+// 更新日：2026年7月5日（Company/style/festivals/materials/ 参照）
 
 export interface Festival {
   university: string;
@@ -103,10 +103,11 @@ export const festivals: Festival[] = [
   {
     university: "東北大学", festivalName: "東北大学祭", prefecture: "宮城", month: 10,
     slug: "tohoku-daigakusai",
-    dateText: "10月23日〜25日（予定）", startDate: "2026-10-23", endDate: "2026-10-25",
+    dateText: "10月23日〜25日", startDate: "2026-10-23", endDate: "2026-10-25",
     url: "https://www.festa-tohoku.org", sponsorStatus: "open",
     reach: "約3万人", studentCount: "約1.8万人",
     venue: "川内キャンパス",
+    instagramUrl: "https://www.instagram.com/festatohoku/",
   },
   {
     university: "神奈川大学", festivalName: "神大フェスタ", prefecture: "神奈川", month: 10,
@@ -123,7 +124,7 @@ export const festivals: Festival[] = [
   {
     university: "青山学院大学", festivalName: "青山祭", prefecture: "東京", month: 10,
     slug: "aoyama",
-    dateText: "10月下旬（予定）",
+    dateText: "10月30日〜11月1日", startDate: "2026-10-30", endDate: "2026-11-01",
     url: "https://aoyamasai.net", sponsorStatus: "unknown",
     reach: "約7万人", studentCount: "約2万人",
     venue: "青山キャンパス",
@@ -215,11 +216,30 @@ export const festivals: Festival[] = [
     xUrl: "https://x.com/135fes",
   },
 
+  {
+    university: "桜美林大学", festivalName: "桜李祭", prefecture: "東京", month: 10,
+    slug: "obirin-sakuri",
+    dateText: "10月下旬（予定）",
+    url: "https://obirinfestival.com/",
+    sponsorStatus: "unknown", studentCount: "約1.1万人",
+    venue: "町田キャンパス",
+    instagramUrl: "https://www.instagram.com/obirinfestival/",
+  },
+  {
+    university: "武蔵野大学", festivalName: "摩耶祭", prefecture: "東京", month: 10,
+    slug: "musashino-maya",
+    dateText: "10月中旬（予定）",
+    sponsorStatus: "unknown", studentCount: "約1.1万人",
+    venue: "武蔵野キャンパス",
+    instagramUrl: "https://www.instagram.com/musashino_fes/",
+  },
+
   // ===== 11月 =====
   {
     university: "早稲田大学", festivalName: "早稲田祭", prefecture: "東京", month: 11,
     slug: "waseda",
-    dateText: "11月上旬（予定）", url: "https://wasedasai.net", sponsorStatus: "unknown",
+    dateText: "11月7日〜8日", startDate: "2026-11-07", endDate: "2026-11-08",
+    url: "https://wasedasai.net", sponsorStatus: "unknown",
     reach: "約20万人", studentCount: "約4.6万人",
     venue: "早稲田キャンパス",
     description: "日本最大規模の学生主体による文化祭。著名人ゲストの講演・ライブ、多数の企画・模擬店が展開され、2日間で約20万人が来場する。",
@@ -228,7 +248,9 @@ export const festivals: Festival[] = [
   {
     university: "慶應義塾大学", festivalName: "三田祭", prefecture: "東京", month: 11,
     slug: "keio-mita",
-    dateText: "11月下旬4日間（予定）", url: "https://www.mitasai.com", sponsorStatus: "unknown",
+    dateText: "11月20日〜23日", startDate: "2026-11-20", endDate: "2026-11-23",
+    url: "https://www.mitasai.com", sponsorStatus: "unknown",
+    history: "第68回",
     reach: "約20万人", studentCount: "約3.3万人",
     venue: "三田キャンパス",
     description: "慶應義塾大学三田キャンパスで毎年11月に開催される伝統の学園祭。企業・OBとの連携イベント、ライブ、展示など4日間にわたる大型イベント。",
@@ -405,6 +427,44 @@ export const festivals: Festival[] = [
     venue: "名城公園キャンパス", history: "第13回",
     description: "愛知学院大学名城公園キャンパスで毎年11月に開催される学部単位の大学祭。模擬店・ステージ企画など学生主体のプログラムが1日にわたって展開される。",
     instagramUrl: "https://www.instagram.com/agufes_mkc/",
+  },
+  {
+    university: "中部大学", festivalName: "中部大学祭", prefecture: "愛知", month: 11,
+    slug: "chubu",
+    dateText: "10月31日〜11月2日（予定）",
+    url: "https://www.isc.chubu.ac.jp/cuf/index.html",
+    sponsorStatus: "unknown", studentCount: "約1.1万人",
+    venue: "春日井キャンパス", history: "第62回",
+    description: "中部大学春日井キャンパスで毎年10月末〜11月初旬に開催される東海地方の学園祭。研究発表・クラブ企画・著名人を招いたタレント企画・模擬店など多彩なプログラムが3日間にわたって展開される。",
+    instagramUrl: "https://www.instagram.com/cu_fes/",
+  },
+  {
+    university: "関東学院大学", festivalName: "平潟祭", prefecture: "神奈川", month: 11,
+    slug: "kanto-gakuin-hirakata",
+    dateText: "11月上旬（予定）",
+    url: "https://hirakatasai.com/",
+    sponsorStatus: "unknown", studentCount: "約1.1万人",
+    venue: "金沢八景キャンパス",
+    instagramUrl: "https://www.instagram.com/hirakatasai/",
+    xUrl: "https://x.com/shin_hirakata",
+  },
+  {
+    university: "國學院大學", festivalName: "若木祭", prefecture: "東京", month: 11,
+    slug: "kokugakuin-wakagi",
+    dateText: "11月上旬（予定）",
+    url: "http://kokugakuin-wakagifes.org/",
+    sponsorStatus: "unknown", studentCount: "約1.1万人",
+    venue: "渋谷キャンパス",
+    xUrl: "https://x.com/wakagifestival",
+  },
+  {
+    university: "武蔵野大学", festivalName: "黎明祭", prefecture: "東京", month: 11,
+    slug: "musashino-reimei",
+    dateText: "11月21日〜22日", startDate: "2026-11-21", endDate: "2026-11-22",
+    url: "https://mu-fes.com/",
+    sponsorStatus: "unknown", studentCount: "約1.1万人",
+    venue: "有明キャンパス",
+    instagramUrl: "https://www.instagram.com/musashino_fes/",
   },
 ];
 
