@@ -1,6 +1,6 @@
 // 学祭カレンダーデータ
 // ベース：ナレッジステーション (https://www.gakkou.net/daigaku/gakuensai/) + 各公式サイト
-// 更新日：2026年7月19日（Company/style/festivals/materials/ 参照）
+// 更新日：2026年8月16日（Company/style/festivals/materials/ 参照）
 
 export interface Festival {
   university: string;
@@ -148,8 +148,11 @@ export const festivals: Festival[] = [
     university: "横浜国立大学", festivalName: "常盤祭", prefecture: "神奈川", month: 10,
     slug: "yokonoku-tokiwa",
     dateText: "10月下旬（予定）",
+    url: "https://www.ynu-fes.yokohama/",
     sponsorStatus: "unknown", studentCount: "約7,300人",
     venue: "常盤台キャンパス",
+    description: "横浜国立大学常盤台キャンパスで毎年秋に開催される学園祭。模擬店・ステージイベント・サークル展示・パフォーマンスなど多彩な企画が展開され、横浜の学生と地域が交流する2日間。",
+    highlights: ["常盤台の広大なキャンパスで開催", "模擬店・ステージライブ", "サークル展示・パフォーマンス"],
     instagramUrl: "https://www.instagram.com/ynu_fes/",
   },
   { university: "北海道大学", festivalName: "エルムの森", prefecture: "北海道", month: 10, slug: "hokudai-elm", dateText: "10月中旬（予定）", sponsorStatus: "unknown" },
@@ -160,6 +163,8 @@ export const festivals: Festival[] = [
     url: "https://meijo-tempakufes.com/",
     sponsorStatus: "unknown", studentCount: "約1.5万人",
     venue: "天白キャンパス",
+    description: "名城大学天白キャンパスで毎年10月末に2日間開催される学園祭。ステージライブ・模擬店・サークル展示など多彩な企画が展開され、東海地方の大型私立大学の学祭として名古屋の秋を彩る。",
+    highlights: ["大型ステージライブ・ゲスト企画", "模擬店・屋台が充実", "サークル展示・パフォーマンス"],
     instagramUrl: "https://www.instagram.com/meijo_uni_fes/",
     xUrl: "https://x.com/meijo_uni_fes",
   },
@@ -230,6 +235,14 @@ export const festivals: Festival[] = [
     sponsorStatus: "unknown", studentCount: "約1.1万人",
     venue: "武蔵野キャンパス",
     instagramUrl: "https://www.instagram.com/musashino_fes/",
+  },
+  {
+    university: "関西外国語大学", festivalName: "外大祭", prefecture: "大阪", month: 10,
+    slug: "kansaigaidai-soto",
+    dateText: "10月下旬（予定）",
+    sponsorStatus: "unknown", reach: "約2万人", studentCount: "約1万人",
+    venue: "中宮キャンパス",
+    description: "関西外国語大学中宮キャンパスで毎年10月に2日間開催される学園祭。国際交流を学ぶ大学らしい多彩な企画が特徴で、ステージライブ・模擬店・サークル発表など約2万人が来場する大阪の人気学祭。",
   },
 
   // ===== 11月 =====
@@ -373,7 +386,16 @@ export const festivals: Festival[] = [
     highlights: ["3キャンパス同時開催の1つ", "文系学部中心のプログラム", "ステージライブ・模擬店"],
     xUrl: "https://x.com/ritsumei_sai",
   },
-  { university: "関西大学", festivalName: "関大まつり", prefecture: "大阪", month: 11, slug: "kansai", dateText: "11月中旬（予定）", sponsorStatus: "unknown" },
+  {
+    university: "関西大学", festivalName: "関大まつり", prefecture: "大阪", month: 11,
+    slug: "kansai",
+    dateText: "11月1日〜4日", startDate: "2026-11-01", endDate: "2026-11-04",
+    url: "https://kandai-gakuensai.com/",
+    sponsorStatus: "unknown", studentCount: "約2.7万人",
+    venue: "千里山キャンパス",
+    description: "関西大学千里山キャンパスで毎年11月初旬に4日間開催される大規模な学園祭。2026年のテーマは「旋風」。ステージライブ・模擬店・サークル展示など多彩な企画が展開される関西有数の大型学祭。",
+    highlights: ["4日間の長期開催", "大型ステージライブ・ゲスト企画", "模擬店・屋台が充実"],
+  },
   {
     university: "広島大学", festivalName: "広大祭", prefecture: "広島", month: 11,
     slug: "hiroshima",
@@ -582,6 +604,43 @@ export const festivals: Festival[] = [
     description: "岡山大学津島キャンパスで毎年11月に2日間開催される学園祭。中四国最大級の大学祭として、ホームカミングデイと同日開催される学内・地域交流型イベント。約90店舗の模擬店・ステージイベント・サークル展示などが行われる。",
     highlights: ["中四国最大級の大学祭", "ホームカミングデイ同時開催", "約90店舗の模擬店・ステージ企画"],
     instagramUrl: "https://www.instagram.com/gakusai_2026_/",
+  },
+  {
+    university: "立正大学", festivalName: "星霜祭", prefecture: "埼玉", month: 11,
+    slug: "rissho-seisou",
+    dateText: "11月上旬（予定）",
+    sponsorStatus: "unknown", studentCount: "約1万人",
+    venue: "熊谷キャンパス",
+    description: "立正大学熊谷キャンパスで毎年11月に開催される学園祭。課外活動団体によるステージ・展示・模擬店に加え、アーティスト・タレントによるスター公演なども開催される。品川キャンパスでは橘花祭が同時期に開催される。",
+    instagramUrl: "https://www.instagram.com/ris_seisousai/",
+    xUrl: "https://x.com/ris_seisousai",
+  },
+  {
+    university: "九州産業大学", festivalName: "香椎祭", prefecture: "福岡", month: 11,
+    slug: "kyusangyo-kashii",
+    dateText: "11月上旬（予定）",
+    sponsorStatus: "unknown", studentCount: "約1万人",
+    description: "九州産業大学で毎年11月初旬に3日間開催される学園祭。ステージイベント・模擬店・サークル展示など多彩な企画が展開される福岡の大型学祭。",
+    instagramUrl: "https://www.instagram.com/93kashii_fes/",
+    xUrl: "https://x.com/kashiifes",
+  },
+  {
+    university: "摂南大学", festivalName: "摂大祭", prefecture: "大阪", month: 11,
+    slug: "setsunan-setsudai",
+    dateText: "11月上旬（予定）",
+    url: "https://kohosetsudaisai.wixsite.com/setsudaisai",
+    sponsorStatus: "unknown", studentCount: "約1万人",
+    venue: "寝屋川キャンパス",
+    description: "摂南大学寝屋川キャンパスで毎年11月に3日間開催される学園祭。ステージイベント・模擬店・サークル発表など多彩な企画が展開される。枚方キャンパスでは「摂友祭」も同時期開催される。",
+  },
+  {
+    university: "帝京平成大学", festivalName: "梟祭", prefecture: "東京", month: 11,
+    slug: "thu-fukurou",
+    dateText: "11月7日", startDate: "2026-11-07", endDate: "2026-11-07",
+    url: "https://www.thu.ac.jp/campuslife/event/fukurou",
+    sponsorStatus: "unknown", studentCount: "約1万人",
+    venue: "池袋キャンパス",
+    description: "帝京平成大学池袋キャンパスで毎年11月に1日開催される学園祭。池袋という都心の立地でステージイベント・模擬店など凝縮された学祭プログラムが展開される。中野キャンパスでは「四季祭」が11月中旬に開催される。",
   },
 ];
 
