@@ -1,6 +1,6 @@
 // 学祭カレンダーデータ
 // ベース：ナレッジステーション (https://www.gakkou.net/daigaku/gakuensai/) + 各公式サイト
-// 更新日：2026年8月16日（Company/style/festivals/materials/ 参照）
+// 更新日：2026年8月23日（Company/style/festivals/materials/ 参照）
 
 export interface Festival {
   university: string;
@@ -120,7 +120,7 @@ export const festivals: Festival[] = [
     instagramUrl: "https://www.instagram.com/jindai_festa/",
     xUrl: "https://x.com/jindai_festa",
   },
-  { university: "立教大学", festivalName: "立教大学学院祭", prefecture: "東京", month: 10, slug: "rikkyo", dateText: "10月下旬〜11月上旬（予定）", sponsorStatus: "unknown" },
+  { university: "立教大学", festivalName: "St. Paul's Festival", prefecture: "東京", month: 11, slug: "rikkyo", dateText: "11月2日〜4日", startDate: "2026-11-02", endDate: "2026-11-04", url: "https://www2.rikkyo.ac.jp/sgrp/spf/", sponsorStatus: "unknown", venue: "池袋キャンパス", history: "第42回" },
   {
     university: "青山学院大学", festivalName: "青山祭", prefecture: "東京", month: 10,
     slug: "aoyama",
@@ -131,7 +131,7 @@ export const festivals: Festival[] = [
     description: "青山学院大学青山キャンパスで毎年10月下旬に3日間開催される学園祭。200以上の団体が参加し、ステージライブ・企画展示・模擬店など多彩なプログラムが展開され、約7万人が来場する。",
     highlights: ["200以上の団体が参加", "著名人ゲストのステージ", "渋谷・表参道エリアのアクセス"],
   },
-  { university: "学習院大学", festivalName: "常磐祭", prefecture: "東京", month: 10, slug: "gakushuin-tokiwa", dateText: "10月下旬（予定）", sponsorStatus: "unknown" },
+  { university: "学習院大学", festivalName: "桜凛祭", prefecture: "東京", month: 11, slug: "gakushuin-ohrin", dateText: "11月1日〜3日", startDate: "2026-11-01", endDate: "2026-11-03", sponsorStatus: "unknown", venue: "目白キャンパス", history: "第50回" },
   { university: "東京学芸大学", festivalName: "小金井祭", prefecture: "東京", month: 10, slug: "gakugei-koganei", dateText: "10月下旬〜11月上旬（予定）", sponsorStatus: "unknown" },
   {
     university: "東京科学大学", festivalName: "工大祭", prefecture: "東京", month: 10,
@@ -189,7 +189,7 @@ export const festivals: Festival[] = [
   {
     university: "東京農業大学", festivalName: "収穫祭", prefecture: "東京", month: 10,
     slug: "nodai-harvest",
-    dateText: "10月30日〜11月1日（予定）",
+    dateText: "10月30日〜11月1日", startDate: "2026-10-30", endDate: "2026-11-01",
     url: "https://harvest-fes.com/",
     sponsorStatus: "unknown", reach: "約10万人", studentCount: "約1.3万人",
     venue: "世田谷キャンパス",
@@ -243,6 +243,42 @@ export const festivals: Festival[] = [
     sponsorStatus: "unknown", reach: "約2万人", studentCount: "約1万人",
     venue: "中宮キャンパス",
     description: "関西外国語大学中宮キャンパスで毎年10月に2日間開催される学園祭。国際交流を学ぶ大学らしい多彩な企画が特徴で、ステージライブ・模擬店・サークル発表など約2万人が来場する大阪の人気学祭。",
+  },
+  {
+    university: "武庫川女子大学", festivalName: "文化祭", prefecture: "兵庫", month: 10,
+    slug: "mukogawa",
+    dateText: "10月17日〜18日", startDate: "2026-10-17", endDate: "2026-10-18",
+    sponsorStatus: "unknown", reach: "約8,000人", studentCount: "約9,300人",
+    venue: "中央キャンパス", history: "第71回",
+    description: "兵庫県西宮市の武庫川女子大学中央キャンパスで毎年10月に3日間開催される女子大の学園祭。前夜祭（学内）と一般公開日（2日間）で構成される。食物栄養学科など専門学科の模擬店や野外ライブステージが名物で、約8,000人が来場する。",
+    highlights: ["食物栄養学科など専門学科の模擬店（約30店）", "野外ステージライブ", "各部活・サークルの展示・公演"],
+    instagramUrl: "https://www.instagram.com/mwu_bunkasai/",
+    xUrl: "https://x.com/mwu_smile",
+  },
+  {
+    university: "新潟大学", festivalName: "新大祭", prefecture: "新潟", month: 10,
+    slug: "niigata-shindaisai",
+    dateText: "10月中旬（予定）",
+    url: "http://www.shindaisai.net/",
+    sponsorStatus: "open", studentCount: "約1万人",
+    venue: "五十嵐キャンパス", history: "第67回",
+    description: "新潟大学五十嵐キャンパスで毎年10月に開催される学園祭。学生団体による模擬店・展示・ダンスに加え、お笑いライブやアーティストコンサートが行われ、新潟県内最大級の大学祭として学内外から多くの来場者を集める。",
+    highlights: ["アーティストによる生演奏コンサート", "お笑い芸人によるお笑いライブ", "学生団体による多彩な模擬店・展示"],
+    instagramUrl: "https://www.instagram.com/sds_jonin/",
+    xUrl: "https://x.com/sds_jonin",
+    sponsorContact: "http://www.shindaisai.net/sponsor.html",
+  },
+  {
+    university: "南山大学", festivalName: "NANFES", prefecture: "愛知", month: 10,
+    slug: "nanzan",
+    dateText: "10月31日〜11月2日（予定）",
+    url: "https://nanfes-official.com/",
+    sponsorStatus: "unknown", studentCount: "約9,700人",
+    venue: "名古屋キャンパス", history: "第77回",
+    description: "南山大学名古屋キャンパスで毎年秋に開催される大学祭。学生有志団体「Nanzan AID」によるアーティストライブ企画が定番で、ステージ・模擬店・教室展示を組み合わせた回遊型の楽しみ方が特徴。",
+    highlights: ["アーティストライブ（過去: yama、Conton Candy等）", "ステージ・模擬店・展示の回遊型フェス", "落語・トークショーなど多彩なステージ企画"],
+    instagramUrl: "https://www.instagram.com/nanfes_nanzan/",
+    xUrl: "https://x.com/2026_nanfes",
   },
 
   // ===== 11月 =====
@@ -421,7 +457,7 @@ export const festivals: Festival[] = [
   {
     university: "日本大学", festivalName: "桜麗祭", prefecture: "東京", month: 11,
     slug: "nihon-u-ohrei",
-    dateText: "11月上旬（予定）",
+    dateText: "11月1日〜2日", startDate: "2026-11-01", endDate: "2026-11-02",
     sponsorStatus: "unknown", studentCount: "約6.7万人",
     venue: "世田谷キャンパス（文理学部）",
     description: "日本大学文理学部（世田谷キャンパス）で毎年11月に開催される学部祭。屋台・ステージ企画・展示など多彩なプログラムが展開される。日本最大規模の学生数を誇る日本大学の文化系学部を代表する学園祭。",
@@ -440,7 +476,7 @@ export const festivals: Festival[] = [
   {
     university: "東洋大学", festivalName: "白山祭", prefecture: "東京", month: 11,
     slug: "toyo-hakusan",
-    dateText: "11月上旬（予定）",
+    dateText: "10月31日〜11月1日", startDate: "2026-10-31", endDate: "2026-11-01",
     url: "https://www.hakusansai.com/", sponsorStatus: "unknown",
     studentCount: "約3.1万人",
     venue: "白山キャンパス",
@@ -641,6 +677,29 @@ export const festivals: Festival[] = [
     sponsorStatus: "unknown", studentCount: "約1万人",
     venue: "池袋キャンパス",
     description: "帝京平成大学池袋キャンパスで毎年11月に1日開催される学園祭。池袋という都心の立地でステージイベント・模擬店など凝縮された学祭プログラムが展開される。中野キャンパスでは「四季祭」が11月中旬に開催される。",
+  },
+  {
+    university: "千葉工業大学", festivalName: "津田沼祭", prefecture: "千葉", month: 11,
+    slug: "chitec-tsudanuma",
+    dateText: "11月下旬（予定）",
+    url: "https://www.it-chiba.ac.jp/support/extra_activities/fes/",
+    sponsorStatus: "unknown", studentCount: "約9,600人",
+    venue: "津田沼キャンパス", history: "第77回",
+    description: "千葉工業大学津田沼キャンパスで毎年11月に開催される学園祭。工科大学ならではのロボットコンテストや工作教室などの展示企画、芸能人ゲストを招いたお笑い・ライブステージ、模擬店など多彩なプログラムが2日間にわたって展開される。",
+    highlights: ["ロボットコンテスト・工作教室（工科大学ならでは）", "お笑い・ライブステージ（芸能人ゲスト招聘）", "各部活・サークルの発表（よさこいソーランなど）"],
+    xUrl: "https://x.com/tsudanumasai",
+  },
+  {
+    university: "愛知大学", festivalName: "穂国祭", prefecture: "愛知", month: 11,
+    slug: "aichi-honokuni",
+    dateText: "11月1日〜2日", startDate: "2026-11-01", endDate: "2026-11-02",
+    url: "https://taweb.aichi-u.ac.jp/honokuni/",
+    sponsorStatus: "unknown", studentCount: "約9,400人",
+    venue: "豊橋キャンパス", history: "第3回",
+    description: "愛知大学豊橋キャンパスで毎年11月に開催される学園祭。2024年に旧「愛大祭」から名称を刷新。文化芸術サークルの展示・発表、地域貢献事業団体の成果発表、屋台など多彩なプログラムが展開される。名古屋キャンパスでは「ささしま祭」が同時期に開催される。",
+    highlights: ["文化芸術サークルによる展示・発表", "地域貢献事業団体の成果発表", "豊橋キャンパスの模擬店・屋台"],
+    sponsorContact: "https://taweb.aichi-u.ac.jp/honokuni/company.html",
+    xUrl: "https://x.com/honokunisai",
   },
 ];
 
