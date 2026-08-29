@@ -1,6 +1,6 @@
 // 学祭カレンダーデータ
 // ベース：ナレッジステーション (https://www.gakkou.net/daigaku/gakuensai/) + 各公式サイト
-// 更新日：2026年8月23日（Company/style/festivals/materials/ 参照）
+// 更新日：2026年8月30日（Company/style/festivals/materials/ 参照）
 
 export interface Festival {
   university: string;
@@ -44,6 +44,11 @@ export const festivals: Festival[] = [
     dateText: "5月16日〜17日", startDate: "2026-05-16", endDate: "2026-05-17",
     sponsorStatus: "open", reach: "約3万人", studentCount: "約1.8万人",
     venue: "川内キャンパス",
+    url: "https://www.festa-tohoku.org",
+    instagramUrl: "https://www.instagram.com/festatohoku/",
+    xUrl: "https://x.com/festatohoku",
+    description: "東北大学川内キャンパスで毎年5月に開催される春の学園祭。学生によるステージイベント・展示・模擬店など多彩な企画が2日間にわたって展開される。仙台の春を彩る学生主体の大学祭。",
+    highlights: ["川内キャンパスを舞台にした春の学祭", "学生主体のステージ・展示・模擬店", "協賛企業・団体と連携した企画"],
   },
   {
     university: "大阪大学", festivalName: "いちょう祭", prefecture: "大阪", month: 5,
@@ -120,7 +125,18 @@ export const festivals: Festival[] = [
     instagramUrl: "https://www.instagram.com/jindai_festa/",
     xUrl: "https://x.com/jindai_festa",
   },
-  { university: "立教大学", festivalName: "St. Paul's Festival", prefecture: "東京", month: 11, slug: "rikkyo", dateText: "11月2日〜4日", startDate: "2026-11-02", endDate: "2026-11-04", url: "https://www2.rikkyo.ac.jp/sgrp/spf/", sponsorStatus: "unknown", venue: "池袋キャンパス", history: "第42回" },
+  {
+    university: "立教大学", festivalName: "St. Paul's Festival", prefecture: "東京", month: 11,
+    slug: "rikkyo",
+    dateText: "11月2日〜4日", startDate: "2026-11-02", endDate: "2026-11-04",
+    url: "https://www2.rikkyo.ac.jp/sgrp/spf/",
+    sponsorStatus: "unknown", studentCount: "約1.9万人",
+    venue: "池袋キャンパス", history: "第42回",
+    description: "立教大学池袋キャンパスで毎年11月初旬に3日間開催される学園祭。SPF（St. Paul's Festival）運営委員会が主体となって企画・運営し、ステージイベント・模擬店・室内企画・著名人ゲスト公演など多彩なプログラムが展開される。2026年のテーマは「BEYOND」。",
+    highlights: ["著名人ゲストによるステージ公演", "模擬店・グルメ企画が充実", "部活・サークルの発表・展示"],
+    instagramUrl: "https://www.instagram.com/stpaulsfestival/",
+    xUrl: "https://x.com/stpaulsfestival",
+  },
   {
     university: "青山学院大学", festivalName: "青山祭", prefecture: "東京", month: 10,
     slug: "aoyama",
@@ -132,7 +148,7 @@ export const festivals: Festival[] = [
     highlights: ["200以上の団体が参加", "著名人ゲストのステージ", "渋谷・表参道エリアのアクセス"],
   },
   { university: "学習院大学", festivalName: "桜凛祭", prefecture: "東京", month: 11, slug: "gakushuin-ohrin", dateText: "11月1日〜3日", startDate: "2026-11-01", endDate: "2026-11-03", sponsorStatus: "unknown", venue: "目白キャンパス", history: "第50回" },
-  { university: "東京学芸大学", festivalName: "小金井祭", prefecture: "東京", month: 10, slug: "gakugei-koganei", dateText: "10月下旬〜11月上旬（予定）", sponsorStatus: "unknown" },
+  { university: "東京学芸大学", festivalName: "小金井祭", prefecture: "東京", month: 11, slug: "gakugei-koganei", dateText: "11月1日〜3日", startDate: "2026-11-01", endDate: "2026-11-03", url: "https://www.koganeisai.com/", sponsorStatus: "unknown", venue: "小金井キャンパス", history: "第73回", instagramUrl: "https://www.instagram.com/tgu_koganeisai/", xUrl: "https://x.com/tgu_koganeisai" },
   {
     university: "東京科学大学", festivalName: "工大祭", prefecture: "東京", month: 10,
     slug: "titech",
@@ -171,7 +187,7 @@ export const festivals: Festival[] = [
   {
     university: "駒澤大学", festivalName: "オータムフェスティバル", prefecture: "東京", month: 10,
     slug: "komazawa-autumn",
-    dateText: "10月31日〜11月1日（予定）",
+    dateText: "10月31日〜11月1日", startDate: "2026-10-31", endDate: "2026-11-01",
     sponsorStatus: "unknown", studentCount: "約1.4万人",
     venue: "駒沢キャンパス",
     instagramUrl: "https://www.instagram.com/autumnfes_koma/",
@@ -180,7 +196,7 @@ export const festivals: Festival[] = [
   {
     university: "中京大学", festivalName: "中京大学祭", prefecture: "愛知", month: 10,
     slug: "chukyo-nagoya",
-    dateText: "10月31日〜11月1日（予定）",
+    dateText: "10月31日〜11月1日", startDate: "2026-10-31", endDate: "2026-11-01", history: "第73回",
     sponsorStatus: "unknown", studentCount: "約1.3万人",
     venue: "名古屋キャンパス",
     instagramUrl: "https://www.instagram.com/chukyo.gakusai/",
@@ -269,9 +285,9 @@ export const festivals: Festival[] = [
     sponsorContact: "http://www.shindaisai.net/sponsor.html",
   },
   {
-    university: "南山大学", festivalName: "NANFES", prefecture: "愛知", month: 10,
+    university: "南山大学", festivalName: "NANFES", prefecture: "愛知", month: 11,
     slug: "nanzan",
-    dateText: "10月31日〜11月2日（予定）",
+    dateText: "11月3日〜5日", startDate: "2026-11-03", endDate: "2026-11-05",
     url: "https://nanfes-official.com/",
     sponsorStatus: "unknown", studentCount: "約9,700人",
     venue: "名古屋キャンパス", history: "第77回",
@@ -357,8 +373,8 @@ export const festivals: Festival[] = [
     highlights: ["学生主体の自主運営", "ステージライブ・ゲスト企画", "模擬店・屋台"],
     instagramUrl: "https://www.instagram.com/hosei_festival/",
   },
-  { university: "津田塾大学", festivalName: "津田ヶ谷祭", prefecture: "東京", month: 11, slug: "tsuda", dateText: "11月中旬（予定）", sponsorStatus: "unknown" },
-  { university: "東京理科大学", festivalName: "理科大祭", prefecture: "東京", month: 11, slug: "tus", dateText: "11月中旬（予定）", sponsorStatus: "unknown" },
+  { university: "津田塾大学", festivalName: "津田ヶ谷祭", prefecture: "東京", month: 10, slug: "tsuda", dateText: "10月24日〜25日", startDate: "2026-10-24", endDate: "2026-10-25", url: "https://tsudagaya.jp/", sponsorStatus: "unknown", venue: "千駄ヶ谷キャンパス", instagramUrl: "https://www.instagram.com/tsudagaya_fes/", xUrl: "https://x.com/Tsudagaya" },
+  { university: "東京理科大学", festivalName: "理科大祭", prefecture: "東京", month: 11, slug: "tus", dateText: "11月20日〜21日（神楽坂地区）", startDate: "2026-11-20", endDate: "2026-11-21", url: "https://ridaisai.com/", sponsorStatus: "unknown", venue: "神楽坂キャンパス", xUrl: "https://x.com/katsu_ridaisai" },
   {
     university: "一橋大学", festivalName: "一橋祭", prefecture: "東京", month: 11,
     slug: "hitotsubashi",
@@ -369,7 +385,16 @@ export const festivals: Festival[] = [
     description: "一橋大学国立キャンパスで毎年11月下旬に3日間開催される学園祭。少人数精鋭の大学らしく参加企画の質が高く、著名人講演・ゼミ研究発表・模擬店などが展開される。",
     highlights: ["著名人・卒業生による講演会", "ゼミ研究発表・展示", "3日間開催（最終日は勤労感謝の日）"],
   },
-  { university: "慶應義塾大学", festivalName: "日吉祭", prefecture: "神奈川", month: 11, slug: "keio-hiyoshi", dateText: "11月中旬（予定）", sponsorStatus: "unknown" },
+  {
+    university: "慶應義塾大学", festivalName: "日吉祭", prefecture: "神奈川", month: 11,
+    slug: "keio-hiyoshi",
+    dateText: "11月中旬（予定）",
+    sponsorStatus: "unknown", studentCount: "約3.3万人",
+    venue: "日吉キャンパス",
+    description: "慶應義塾大学日吉キャンパスで毎年11月に開催される学園祭。1・2年生の教養課程学生を中心に企画・運営され、ステージイベント・模擬店・室内企画など多彩なプログラムが展開される。日吉の地域と連携したアットホームな雰囲気も特徴。",
+    instagramUrl: "https://www.instagram.com/keiohiyoshifes/",
+    xUrl: "https://x.com/keiohiyoshifes",
+  },
   {
     university: "神戸大学", festivalName: "六甲祭", prefecture: "兵庫", month: 11,
     slug: "kobe",
@@ -700,6 +725,51 @@ export const festivals: Festival[] = [
     highlights: ["文化芸術サークルによる展示・発表", "地域貢献事業団体の成果発表", "豊橋キャンパスの模擬店・屋台"],
     sponsorContact: "https://taweb.aichi-u.ac.jp/honokuni/company.html",
     xUrl: "https://x.com/honokunisai",
+  },
+
+  // ===== 新規追加 2026-08-30 =====
+  {
+    university: "東京電機大学", festivalName: "鳩山祭", prefecture: "埼玉", month: 10,
+    slug: "tdu-hatoyama",
+    dateText: "10月31日〜11月1日", startDate: "2026-10-31", endDate: "2026-11-01",
+    url: "https://hatosai.sunnyday.jp/",
+    sponsorStatus: "unknown", studentCount: "約9,265人",
+    venue: "鳩山キャンパス", history: "第50回",
+    description: "東京電機大学鳩山キャンパスで毎年10月末〜11月初旬に2日間開催される学園祭。2026年は記念すべき第50回を迎える。ステージイベント・模擬店・サークル展示など多彩なプログラムが展開される。声優トークショーやお笑い芸人ライブなどゲスト企画も充実。",
+    highlights: ["第50回記念の節目の学祭", "声優・お笑いゲストのステージ企画", "模擬店・展示が充実"],
+    instagramUrl: "https://www.instagram.com/tdu_hatoyamasai/",
+    xUrl: "https://x.com/hatoyamasai",
+  },
+  {
+    university: "甲南大学", festivalName: "摂津祭", prefecture: "兵庫", month: 11,
+    slug: "konan-settsusai",
+    dateText: "11月1日〜3日（予定）",
+    url: "https://konan-settsufes.com/",
+    sponsorStatus: "unknown", studentCount: "約8,924人",
+    venue: "岡本キャンパス", history: "第62回",
+    description: "甲南大学岡本キャンパスで毎年11月初旬に3日間開催される学園祭。神戸・岡本の閑静な住宅街に位置するキャンパスを舞台に、ステージライブ・模擬店・企画展示など多彩なプログラムが展開される関西の人気学祭。",
+    highlights: ["神戸・岡本の好立地キャンパスで開催", "アーティストライブ・ゲスト企画", "模擬店・屋台が充実"],
+    instagramUrl: "https://www.instagram.com/settsufes_konan/",
+  },
+  {
+    university: "信州大学", festivalName: "銀嶺祭", prefecture: "長野", month: 11,
+    slug: "shinshu-ginrei",
+    dateText: "11月上旬（予定）",
+    url: "https://www.ginreisai.com/",
+    sponsorStatus: "unknown", studentCount: "約8,902人",
+    venue: "松本キャンパス",
+    description: "信州大学松本キャンパスで毎年11月に2日間開催される長野県内最大規模の学園祭。アーティストライブ・模擬店・サークル展示・教室企画など多彩なプログラムが展開される。北アルプスを望む松本の地で開催される信州を代表する学祭。",
+    highlights: ["長野県内最大規模の学園祭", "アーティストコンサート", "模擬店・教室企画が充実"],
+    xUrl: "https://x.com/ginreisai",
+  },
+  {
+    university: "拓殖大学", festivalName: "光稜祭", prefecture: "東京", month: 11,
+    slug: "takushoku-kohryo",
+    dateText: "11月上旬（予定）",
+    url: "https://www.takushoku-u.ac.jp/campus_life/festival.html",
+    sponsorStatus: "unknown", studentCount: "約9,049人",
+    venue: "文京キャンパス",
+    description: "拓殖大学文京キャンパスで毎年11月に開催される学園祭。国際色豊かな拓殖大学らしい多彩な文化交流企画・ステージイベント・模擬店などが展開される。八王子国際キャンパスでは同時期に「高尾祭」が開催される。",
   },
 ];
 
