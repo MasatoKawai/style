@@ -1,6 +1,6 @@
 // 学祭カレンダーデータ
 // ベース：ナレッジステーション (https://www.gakkou.net/daigaku/gakuensai/) + 各公式サイト
-// 更新日：2026年8月30日（Company/style/festivals/materials/ 参照）
+// 更新日：2026年9月6日（Company/style/festivals/materials/ 参照）
 
 export interface Festival {
   university: string;
@@ -175,7 +175,7 @@ export const festivals: Festival[] = [
   {
     university: "名城大学", festivalName: "大学祭", prefecture: "愛知", month: 10,
     slug: "meijo-tenpaku",
-    dateText: "10月30日〜31日（予定）",
+    dateText: "10月31日〜11月1日", startDate: "2026-10-31", endDate: "2026-11-01",
     url: "https://meijo-tempakufes.com/",
     sponsorStatus: "unknown", studentCount: "約1.5万人",
     venue: "天白キャンパス",
@@ -460,7 +460,7 @@ export const festivals: Festival[] = [
   {
     university: "広島大学", festivalName: "広大祭", prefecture: "広島", month: 11,
     slug: "hiroshima",
-    dateText: "11月上旬（予定）",
+    dateText: "11月7日〜8日", startDate: "2026-11-07", endDate: "2026-11-08",
     url: "https://hirodai-festival.com/",
     sponsorStatus: "unknown", studentCount: "約1.5万人",
     venue: "東広島キャンパス",
@@ -550,7 +550,7 @@ export const festivals: Festival[] = [
   {
     university: "福岡大学", festivalName: "七隈祭", prefecture: "福岡", month: 11,
     slug: "fukuoka-nanakuma",
-    dateText: "11月上旬（予定）",
+    dateText: "11月1日〜3日", startDate: "2026-11-01", endDate: "2026-11-03",
     url: "https://www.fukuoka-u.ac.jp/",
     sponsorStatus: "unknown", reach: "約2万人", studentCount: "約1.9万人",
     venue: "七隈キャンパス",
@@ -647,7 +647,7 @@ export const festivals: Festival[] = [
   {
     university: "千葉大学", festivalName: "千葉大祭", prefecture: "千葉", month: 11,
     slug: "chiba-daigakusai",
-    dateText: "11月上旬（予定）",
+    dateText: "10月30日〜11月1日", startDate: "2026-10-30", endDate: "2026-11-01",
     url: "https://chibafes.com/",
     sponsorStatus: "unknown", reach: "約4万人", studentCount: "約1万人",
     venue: "西千葉キャンパス",
@@ -659,7 +659,7 @@ export const festivals: Festival[] = [
   {
     university: "岡山大学", festivalName: "津島祭", prefecture: "岡山", month: 11,
     slug: "okadai-tsushima",
-    dateText: "11月上旬（予定）",
+    dateText: "10月31日〜11月1日", startDate: "2026-10-31", endDate: "2026-11-01",
     sponsorStatus: "unknown", studentCount: "約1万人",
     venue: "津島キャンパス",
     description: "岡山大学津島キャンパスで毎年11月に2日間開催される学園祭。中四国最大級の大学祭として、ホームカミングデイと同日開催される学内・地域交流型イベント。約90店舗の模擬店・ステージイベント・サークル展示などが行われる。",
@@ -770,6 +770,31 @@ export const festivals: Festival[] = [
     sponsorStatus: "unknown", studentCount: "約9,049人",
     venue: "文京キャンパス",
     description: "拓殖大学文京キャンパスで毎年11月に開催される学園祭。国際色豊かな拓殖大学らしい多彩な文化交流企画・ステージイベント・模擬店などが展開される。八王子国際キャンパスでは同時期に「高尾祭」が開催される。",
+  },
+
+  // ===== 新規追加 2026-09-06 =====
+  {
+    university: "国際医療福祉大学", festivalName: "風花祭", prefecture: "栃木", month: 10,
+    slug: "iuhw-kazahana",
+    dateText: "10月10日〜11日", startDate: "2026-10-10", endDate: "2026-10-11",
+    url: "https://otawara.iuhw.ac.jp/",
+    sponsorStatus: "unknown", studentCount: "約9,186人",
+    venue: "大田原キャンパス",
+    description: "国際医療福祉大学大田原キャンパスで毎年10月に2日間開催される学園祭。医療・福祉系大学らしい健康フェアやステージイベント・模擬店などが展開される栃木の大学祭。お笑いライブや花火など多彩なプログラムが楽しめる。",
+    highlights: ["医療・福祉系大学ならではの健康フェア企画", "お笑いライブ・花火などの大型企画", "模擬店・ステージイベント"],
+    instagramUrl: "https://www.instagram.com/iuhw_kazahanasai/",
+  },
+  {
+    university: "愛知淑徳大学", festivalName: "淑楓祭", prefecture: "愛知", month: 10,
+    slug: "aasa-shukufu",
+    dateText: "10月31日〜11月1日", startDate: "2026-10-31", endDate: "2026-11-01",
+    url: "https://www.aasa.ac.jp/life/festival/",
+    sponsorStatus: "unknown", studentCount: "約8,605人",
+    venue: "長久手・星が丘キャンパス", history: "第50回",
+    description: "愛知淑徳大学の長久手キャンパスと星が丘キャンパスで毎年10月末〜11月初旬に2日間同時開催される学園祭。2026年は記念すべき第50回を迎える。ステージライブ・模擬店・サークル展示など多彩なプログラムが展開される愛知の人気学祭。",
+    highlights: ["2026年は記念すべき第50回", "2キャンパス同時開催", "ステージライブ・模擬店が充実"],
+    instagramUrl: "https://www.instagram.com/shukufusai_ngkt/",
+    xUrl: "https://x.com/shukufusai_ngkt",
   },
 ];
 
