@@ -366,7 +366,7 @@ export const festivals: Festival[] = [
     university: "法政大学", festivalName: "自主法政祭", prefecture: "東京", month: 11,
     slug: "hosei",
     dateText: "10月31日〜11月3日", startDate: "2026-10-31", endDate: "2026-11-03",
-    url: "https://ichigayahoseifes.com/",
+    url: "https://hoseifes79ichigaya.tokyo/",
     sponsorStatus: "unknown", studentCount: "約3万人",
     venue: "市ヶ谷キャンパス",
     description: "法政大学市ヶ谷キャンパスで毎年10月末〜11月初旬に4日間開催される学園祭。法政大学の自主性・自由の精神を受け継ぐ「自主法政祭」として学生が主体的に企画運営し、ステージイベント・展示・模擬店など多彩なプログラムが展開される。",
